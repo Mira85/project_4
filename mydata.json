@@ -1,0 +1,180 @@
+[
+    {
+        "model": "main_app.borough",
+        "pk": 1,
+        "fields": {
+            "name": "Manhattan",
+            "image": "https://cdn.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1024/https://www.travelocity.com/inspire/wp-content/uploads/2018/08/nyc-borough-times-square.jpg"
+        }
+    },
+    {
+        "model": "main_app.borough",
+        "pk": 2,
+        "fields": {
+            "name": "Staten Island",
+            "image": "https://cdn.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1024/https://www.travelocity.com/inspire/wp-content/uploads/2018/08/nyc-borough-staten-island-ferry.jpg"
+        }
+    },
+    {
+        "model": "main_app.borough",
+        "pk": 3,
+        "fields": {
+            "name": "Brooklyn",
+            "image": "https://www.planetware.com/wpimages/2020/06/new-york-brooklyn-attractions-things-to-do-brooklyn-bridge.jpg"
+        }
+    },
+    {
+        "model": "main_app.borough",
+        "pk": 4,
+        "fields": {
+            "name": "Queens",
+            "image": "https://media.timeout.com/images/103486998/750/562/image.jpg"
+        }
+    },
+    {
+        "model": "main_app.borough",
+        "pk": 5,
+        "fields": {
+            "name": "The Bronx",
+            "image": "https://media.timeout.com/images/103486998/750/562/image.jpg"
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 1,
+        "fields": {
+            "name": "Midtown",
+            "description": "With all the noise, color, flash and bustle of Times Square, Broadway and Rockefeller Center, Midtown is the neighborhood many picture first when they think of New York. Rockefeller Center, Grand Central Terminal and St. Patrick’s Cathedral are all among the world’s most recognizable destinations. The neighborhood isn’t just sightseeing, however: it also boasts top-flight restaurants and bars, including the Theatre District’s Restaurant Row and rowdy Hell’s Kitchen’s bars and clubs.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/West_side_of_Manhattan_from_Hudson_Commons_%2895103p%29.jpg/1024px-West_side_of_Manhattan_from_Hudson_Commons_%2895103p%29.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 2,
+        "fields": {
+            "name": "Coney Island",
+            "description": "Coney Island is a peninsular neighborhood and entertainment area in the southwestern section of the New York City borough of Brooklyn. The neighborhood is bounded by Brighton Beach to its east, Lower New York Bay to the south and west, and Gravesend to the north, and includes the subsections of Sea Gate to its west and Brighton Beach to its east.",
+            "image": "https://globoloko.com/wp-content/uploads/2021/12/5-things-to-do-in-Coney-Island-New-York.jpg",
+            "borough": 3
+        }
+    },
+    
+    {
+        "model": "main_app.neighborhood",
+        "pk": 3,
+        "fields": {
+            "name": "Chelsea",
+            "description": "Chelsea is Manhattan’s art district. You can spend days here wandering galleries that show work from established and emerging artists. The High Line—a park built on an abandoned elevated railroad track—is a work of art in its own right, as are some of the area’s fashionable shops. After feasting your eyes, go restaurant hopping, or visit Chelsea Market, which offers excellent eateries. Then head out to the neighborhood’s famous nightclubs, buzzing bars or performing arts venues.",
+            "image": "https://www.nyhabitat.com/blog/wp-content/uploads/2013/06/chelsea-midtown-manhattan-ny-new-york.jpg",
+            "borough": 1
+        }
+    },
+    
+    {
+        "model": "main_app.neighborhood",
+        "pk": 4,
+        "fields": {
+            "name": "Fordham",
+            "description": "Chelsea is Manhattan’s art district. You can spend days here wandering galleries that show work from established and emerging artists. The High Line—a park built on an abandoned elevated railroad track—is a work of art in its own right, as are some of the area’s fashionable shops. After feasting your eyes, go restaurant hopping, or visit Chelsea Market, which offers excellent eateries. Then head out to the neighborhood’s famous nightclubs, buzzing bars or performing arts venues.",
+            "image": "https://www.nyhabitat.com/blog/wp-content/uploads/2013/06/chelsea-midtown-manhattan-ny-new-york.jpg",
+            "borough": 5
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 5,
+        "fields": {
+            "name": "Liberty Island",
+            "description": "Liberty Island is in Upper New York Bay in the United States. Its most notable feature is the Statue of Liberty, a large statue by Frédéric Auguste Bartholdi that was dedicated in 1886. The island also contains the Statue of Liberty Museum, which opened in 2019 and exhibits the statue's original torch.",
+            "image": "https://www.thoughtco.com/thmb/Snjtk9N_VnZB5ThOosyO-wTXnIY=/2490x2490/smart/filters:no_upscale()/Statue-liberty-57a5b5a25f9b58974aee7d01.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 6,
+        "fields": {
+            "name": "Lower Manhattan",
+            "description": "This is where the City started in the 1600s—and where skyscrapers, financial powerhouses, cultural landmarks and gleaming new developments keep things humming in the 21st century. Its skyline is instantly recognizable and its emotional resonance undeniable.",
+            "image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/39/a4/01.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 7,
+        "fields": {
+            "name": "Midtown",
+            "description": "With all the noise, color, flash and bustle of Times Square, Broadway and Rockefeller Center, Midtown is the neighborhood many picture first when they think of New York. Rockefeller Center, Grand Central Terminal and St. Patrick’s Cathedral are all among the world’s most recognizable destinations. The neighborhood isn’t just sightseeing, however: it also boasts top-flight restaurants and bars, including the Theatre District’s Restaurant Row and rowdy Hell’s Kitchen’s bars and clubs.",
+            "image": "https://image.posterlounge.com/images/l/1889925.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 8,
+        "fields": {
+            "name": "Flushing",
+            "description": "Dynamic Flushing holds Queens’ Chinatown, its bustling main blocks lined with herbal shops and Asian bakeries and restaurants. The neighborhood is quite lush, too; indeed, it’s home to the borough’s botanical garden and one of NYC’s largest parks.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flushing%2C_Queens%2C_NY%2C_USA_-_panoramio_%281%29.jpg/1024px-Flushing%2C_Queens%2C_NY%2C_USA_-_panoramio_%281%29.jpg",
+            "borough": 4
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 9,
+        "fields": {
+            "name": "East Village",
+            "description": "The East Village, birthplace of American punk rock, has changed, but it remains a neighborhood of lovable misfits. Over the years Beat poets, bohemian artists and avant-garde filmmakers have all made their homes here, celebrating the area in stories, on canvas and on screen. Visitors can explore that heritage, as well as experience the neighborhood’s vibrant dining and nightlife options. There are plenty of places to go: indie-rock, blues, folk and even comedy clubs, along with upscale spots that serve swanky cocktails and restaurants for every taste and budget.",
+            "image": "https://www.nyhabitat.com/blog/wp-content/uploads/2013/11/east-village-manhattan-nyc-new-york-rooftops.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 10,
+        "fields": {
+            "name": "Willamsburg",
+            "description": "Williamsburg has long been the setting of many seminal films and books that represent life in Brooklyn in the 1900s. As a manufacturing neighborhood, the area attracted hard-working New Yorkers. Decades later, Williamsburg began to attract an overflow of artists from downtown Manhattan, and since then it has become a beacon of Brooklyn creativity.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/View_of_South_Williamsburg.jpg/800px-View_of_South_Williamsburg.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 11,
+        "fields": {
+            "name": "Times Square",
+            "description": "Flashing neon lights and giant digital billboards. Brilliant Broadway marquees. Costumed characters and musicians. Times Square is big, bright and unforgettable. Its main junction is filled with popular retailers—plus the TKTS discount booth, which offers up to 50 percent off theater tickets. Walk to the top of its red steps—you may know them from the "Empire State of Mind" video—for a sweeping view of the area, including One Times Square, the building from which the ball drops on New Year's Eve. People-watchers will love the pedestrian-only zones furnished with tables and chairs.",
+            "image": "https://www.nycgo.com/images/venues/152/tripadvisortimessquare_taggeryanceyiv_5912__large.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 12,
+        "fields": {
+            "name": "Upper East Side",
+            "description": "Leafy home to the City’s elite, the Upper East Side is a place for pastry, pearls and pocket squares. Refined culture and shopping are the name of the game up here. Case in point: Museum Mile, whose institutions include big names like The Metropolitan Museum of Art and the Solomon R. Guggenheim Museum alongside gems like Neue Galerie and the Frick Collection. The shopping options offer a chance to get a new wardrobe from luxury boutiques and high-end department stores.",
+            "image": "https://static01.nyt.com/images/2014/03/16/realestate/16COVER1_SPAN/16COVER1_SPAN-articleLarge-v2.jpg?quality=75&auto=webp&disable=upscale",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 13,
+        "fields": {
+            "name": "Upper West Side",
+            "description": "Bordered by Central Park and Riverside Park and lined with residential buildings that look ever-so-familiar from movies and TV, the Upper West Side is made for a stroll through pop-culture history—and history in general. Lincoln Center performances and the American Museum of Natural History are just a few of its draws. Another: Platonic-ideal versions of NYC brunch and appetizing delicacies.",
+            "image": "https://www.cityguideny.com/columnpic2/upper-west-side-skyline.jpg?clear=1",
+            "borough": 1
+        }
+    }
+
+
+
+    
+    
+    
+    ]
