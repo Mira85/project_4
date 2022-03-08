@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'destinationNYC.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nyc_tracker',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'destinationNYC',
+        'USER': 'postgres',
+        'PASSWORD': 'julianadrian1',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 

@@ -19,9 +19,9 @@ class Entertainment(models.Model):
     name = models.CharField(max_length=275)
     type_of = models.CharField(max_length=150)
     price = models.IntegerField(
-        default= 1,
+        default= 0,
         validators= [
-        MinValueValidator(1),
+        MinValueValidator(0),
         MaxValueValidator(5)
     ])
     description = models.TextField(max_length=275)
@@ -30,9 +30,9 @@ class Entertainment(models.Model):
 class SightSeeing(models.Model):
     name = models.CharField(max_length=275)
     price = models.IntegerField(
-        default= 1,
+        default= 0,
         validators= [
-        MinValueValidator(1),
+        MinValueValidator(0),
         MaxValueValidator(5)
     ])
     description = models.TextField(max_length=275)
@@ -49,9 +49,9 @@ class Food(models.Model):
     name = models.CharField(max_length=250)
     cuisine = models.CharField(max_length=250)
     price = models.IntegerField(
-        default= 1,
+        default= 0,
         validators= [
-        MinValueValidator(1),
+        MinValueValidator(0),
         MaxValueValidator(5)
     ])
     image = models.CharField(max_length=350)
@@ -61,9 +61,9 @@ class Food(models.Model):
 class Art_Culture(models.Model):
     name = models.CharField(max_length=250)
     price = models.IntegerField(
-        default= 1,
+        default= 0,
         validators= [
-        MinValueValidator(1),
+        MinValueValidator(0),
         MaxValueValidator(5)
     ])
     image = models.CharField(max_length=350)
@@ -73,9 +73,9 @@ class Art_Culture(models.Model):
 class Accomodation(models.Model):
     name = models.CharField(max_length=250)
     price = models.IntegerField(
-        default= 1,
+        default= 0,
         validators= [
-        MinValueValidator(1),
+        MinValueValidator(0),
         MaxValueValidator(5)
     ])
     type_of = models.CharField(max_length=150)
