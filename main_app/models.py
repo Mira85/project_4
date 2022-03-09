@@ -5,12 +5,18 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Borough(models.Model):
     name = models.CharField(max_length=175)
     image = models.CharField(max_length = 220)
+    
+    def __str__(self):
+        return f'{self.name}, NY'
 
 class Neighborhood(models.Model):
     name = models.CharField(max_length=175)
     description = models.TextField(max_length=275)
     image = models.CharField(max_length=250)
     borough = models.ForeignKey(Borough, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'{self.name}, {self.borough.name}'
 
 class Entertainment(models.Model):
     name = models.CharField(max_length=275)
@@ -23,6 +29,9 @@ class Entertainment(models.Model):
     ])
     description = models.TextField(max_length=275)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Entertainmen: {self.name}, Neighborhood: {self.neighborhood.name}'
 
 class SightSeeing(models.Model):
     name = models.CharField(max_length=275)
