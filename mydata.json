@@ -146,7 +146,7 @@
         "pk": 11,
         "fields": {
             "name": "Times Square",
-            "description": "Flashing neon lights and giant digital billboards. Brilliant Broadway marquees. Costumed characters and musicians. Times Square is big, bright and unforgettable. Its main junction is filled with popular retailers—plus the TKTS discount booth, which offers up to 50 percent off theater tickets. Walk to the top of its red steps—you may know them from the "Empire State of Mind" video—for a sweeping view of the area, including One Times Square, the building from which the ball drops on New Year's Eve. People-watchers will love the pedestrian-only zones furnished with tables and chairs.",
+            "description": "Flashing neon lights and giant digital billboards. Brilliant Broadway marquees. Costumed characters and musicians. Times Square is big, bright and unforgettable. Its main junction is filled with popular retailers—plus the TKTS discount booth, which offers up to 50 percent off theater tickets. Walk to the top of its red steps—you may know them from the 'Empire State of Mind' video—for a sweeping view of the area, including One Times Square, the building from which the ball drops on New Year's Eve. People-watchers will love the pedestrian-only zones furnished with tables and chairs.",
             "image": "https://www.nycgo.com/images/venues/152/tripadvisortimessquare_taggeryanceyiv_5912__large.jpg",
             "borough": 1
         }
@@ -169,6 +169,18 @@
             "description": "Bordered by Central Park and Riverside Park and lined with residential buildings that look ever-so-familiar from movies and TV, the Upper West Side is made for a stroll through pop-culture history—and history in general. Lincoln Center performances and the American Museum of Natural History are just a few of its draws. Another: Platonic-ideal versions of NYC brunch and appetizing delicacies.",
             "image": "https://www.cityguideny.com/columnpic2/upper-west-side-skyline.jpg?clear=1",
             "borough": 1
+        }
+    },
+    {
+        "model": "main_app.food",
+        "pk": 1,
+        "fields": {
+            "name": "Magna Restaurant",
+            "price": 2,
+            "cuisine": "Italian",
+            "description": "Often referred to as 'Flushing's Hidden Gem',  Magna, is proud to be highly rated on TripAdvisor and OpenTable. Established in 2008, we take pride in  offering delicious Italian dishes and desserts, some American favorites, and an extensive wine list.",
+            "image": "https://fastly.4sqi.net/img/general/200x200/399431197_jMzOyZbn0H1Xviy6VIQDtkAnP4DG9OFpXSOZ1Y50rIw.jpg",
+            "neighborhood": 8
         }
     }
 
