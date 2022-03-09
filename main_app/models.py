@@ -67,7 +67,7 @@ class Art_Culture(models.Model):
     description = models.TextField(max_length=350)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
     
-class Accomodation(models.Model):
+class Accommodation(models.Model):
     name = models.CharField(max_length=250)
     price = models.IntegerField(
         default= 0,
