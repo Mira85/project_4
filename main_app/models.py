@@ -12,9 +12,6 @@ class Neighborhood(models.Model):
     image = models.CharField(max_length=250)
     borough = models.ForeignKey(Borough, on_delete=models.CASCADE)
 
-class Point_of_Interest(models.Model):
-    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
-
 class Entertainment(models.Model):
     name = models.CharField(max_length=275)
     type_of = models.CharField(max_length=150)
@@ -25,7 +22,7 @@ class Entertainment(models.Model):
         MaxValueValidator(5)
     ])
     description = models.TextField(max_length=275)
-    point_of_interest = models.ForeignKey(Point_of_Interest, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
 
 class SightSeeing(models.Model):
     name = models.CharField(max_length=275)
@@ -36,14 +33,14 @@ class SightSeeing(models.Model):
         MaxValueValidator(5)
     ])
     description = models.TextField(max_length=275)
-    point_of_interest = models.ForeignKey(Point_of_Interest, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
 
 class Nature(models.Model):
     name = models.CharField(max_length=250)
     season = models.CharField(max_length=20)
     image = models.CharField(max_length=275)
     description = models.TextField(max_length=375)
-    point_of_interest = models.ForeignKey(Point_of_Interest, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
 
 class Food(models.Model):
     name = models.CharField(max_length=250)
@@ -56,7 +53,7 @@ class Food(models.Model):
     ])
     image = models.CharField(max_length=350)
     description = models.TextField(max_length=350)
-    point_of_interest = models.ForeignKey(Point_of_Interest, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
 
 class Art_Culture(models.Model):
     name = models.CharField(max_length=250)
@@ -68,7 +65,7 @@ class Art_Culture(models.Model):
     ])
     image = models.CharField(max_length=350)
     description = models.TextField(max_length=350)
-    point_of_interest = models.ForeignKey(Point_of_Interest, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
     
 class Accomodation(models.Model):
     name = models.CharField(max_length=250)
@@ -81,7 +78,7 @@ class Accomodation(models.Model):
     type_of = models.CharField(max_length=150)
     image = models.CharField(max_length=350)
     description = models.TextField(max_length=350)
-    point_of_interest = models.ForeignKey(Point_of_Interest, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
 
 
 
