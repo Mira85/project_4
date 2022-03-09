@@ -184,6 +184,18 @@
         }
     },
     {
+        "model": "main_app.food",
+        "pk": 2,
+        "fields": {
+            "name": "Momofuku Ko",
+            "price": 5,
+            "cuisine": "Japanese",
+            "description": "David Chang is probably one of the most respected restaurateurs in New York City. He opened Momofuku Ko, his fine dining outpost, in 2008, which has retained its culinary praise and 2 Michelin star rating ever since.",
+            "image": "https://lh5.googleusercontent.com/p/AF1QipPTOwh0m3m_dfBY4OeZ3rSNFjJEoAA6Fd_4sp7P=w408-h271-k-no",
+            "neighborhood": 9
+        }
+    },
+    {
         "model": "main_app.accommodation",
         "pk": 1,
         "fields": {
@@ -196,6 +208,18 @@
         }
     },
     {
+        "model": "main_app.accommodation",
+        "pk": 2,
+        "fields": {
+            "name": "The Manhattan",
+            "price": 1,
+            "image": "https://lh3.googleusercontent.com/proxy/ideE8NP1WK8Xcv72FCEErkUgcOETVlLAxoIhsPS9Jq8BvPYY5E9XGU091sT8_UxNAB8SOy-Bj1bG2NULEWQh1Ki4T4lj-c5l2whLXb7wBF86dkFpZEY4eZop4oH9_49aTJ3VKC2J13Mpb9aqukQzW2TDymPQwA=w296-h202-n-k-rw-no-v1",
+            "type_of": "Hotel",
+            "description": "The Manhattan at Times Square Hotel pairs ideal New York City accommodations with a coveted Times Square location. Close to dozens of New York activities and attractions, restaurants and things to do, you'll be awed by the hustle and bustle of the Times Square streets that surround our hotel.",
+            "neighborhood": 11
+        }
+    },
+    {
         "model": "main_app.art_culture",
         "pk": 1,
         "fields": {
@@ -205,8 +229,19 @@
             "description": "The Metropolitan Museum of Art is one of the world's largest and finest art museums. Its collection spans 5,000 years of world culture, from prehistory to the present and from every part of the globe.",
             "neighborhood": 12
         }
-
+    },
+    {
+        "model": "main_app.art_culture",
+        "pk": 2,
+        "fields": {
+            "name": "American Museum of Natural History",
+            "price": 2,
+            "image": "https://www.nycgo.com/images/uploads/articles/Half_Day_Itinerary_AMNH/AMNH-Upper-West-Side-Manhattan-NYC-CC_HOL.jpg",
+            "description": "Since its founding in 1869, the Museum has advanced its global mission to discover, interpret, and disseminate information about human cultures, the natural world, and the universe through a wide-ranging program of scientific research, education, and exhibition.",
+            "neighborhood": 13
+        }
     }
+    
 
 
 
