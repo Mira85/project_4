@@ -194,6 +194,18 @@
             "description": "Pod Brooklyn is full of surprises. Functional yet fashionable, chic yet simple, and industrial yet comfortable.",
             "neighborhood": 10
         }
+    },
+    {
+        "model": "main_app.art_culture",
+        "pk": 1,
+        "fields": {
+            "name": "Metropolitan Museum of Art",
+            "price": 2,
+            "image": "http://www.metmuseum.org/-/media/images/visit/met-fifth-avenue/fifthave_teaser.jpg?sc_lang=en",
+            "description": "The Metropolitan Museum of Art is one of the world's largest and finest art museums. Its collection spans 5,000 years of world culture, from prehistory to the present and from every part of the globe.",
+            "neighborhood": 12
+        }
+
     }
 
 
