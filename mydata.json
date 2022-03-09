@@ -146,7 +146,7 @@
         "pk": 11,
         "fields": {
             "name": "Times Square",
-            "description": "Flashing neon lights and giant digital billboards. Brilliant Broadway marquees. Costumed characters and musicians. Times Square is big, bright and unforgettable. Its main junction is filled with popular retailers—plus the TKTS discount booth, which offers up to 50 percent off theater tickets. Walk to the top of its red steps—you may know them from the "Empire State of Mind" video—for a sweeping view of the area, including One Times Square, the building from which the ball drops on New Year's Eve. People-watchers will love the pedestrian-only zones furnished with tables and chairs.",
+            "description": "Flashing neon lights and giant digital billboards. Brilliant Broadway marquees. Costumed characters and musicians. Times Square is big, bright and unforgettable. Its main junction is filled with popular retailers—plus the TKTS discount booth, which offers up to 50 percent off theater tickets. Walk to the top of its red steps—you may know them from the 'Empire State of Mind' video—for a sweeping view of the area, including One Times Square, the building from which the ball drops on New Year's Eve. People-watchers will love the pedestrian-only zones furnished with tables and chairs.",
             "image": "https://www.nycgo.com/images/venues/152/tripadvisortimessquare_taggeryanceyiv_5912__large.jpg",
             "borough": 1
         }
@@ -170,6 +170,42 @@
             "image": "https://www.cityguideny.com/columnpic2/upper-west-side-skyline.jpg?clear=1",
             "borough": 1
         }
+    },
+    {
+        "model": "main_app.food",
+        "pk": 1,
+        "fields": {
+            "name": "Magna Restaurant",
+            "price": 2,
+            "cuisine": "Italian",
+            "description": "Often referred to as 'Flushing's Hidden Gem',  Magna, is proud to be highly rated on TripAdvisor and OpenTable. Established in 2008, we take pride in  offering delicious Italian dishes and desserts, some American favorites, and an extensive wine list.",
+            "image": "https://fastly.4sqi.net/img/general/200x200/399431197_jMzOyZbn0H1Xviy6VIQDtkAnP4DG9OFpXSOZ1Y50rIw.jpg",
+            "neighborhood": 8
+        }
+    },
+    {
+        "model": "main_app.accommodation",
+        "pk": 1,
+        "fields": {
+            "name": "POD Brooklyn",
+            "price": 2,
+            "image": "https://q-xx.bstatic.com/xdata/images/hotel/max300/151931997.jpg?k=dbc8e7128a19015e150ebd890d6a1955941daceb04864aa1400f804e9d4294b5&o=",
+            "type_of": "Hotel",
+            "description": "Pod Brooklyn is full of surprises. Functional yet fashionable, chic yet simple, and industrial yet comfortable.",
+            "neighborhood": 10
+        }
+    },
+    {
+        "model": "main_app.art_culture",
+        "pk": 1,
+        "fields": {
+            "name": "Metropolitan Museum of Art",
+            "price": 2,
+            "image": "http://www.metmuseum.org/-/media/images/visit/met-fifth-avenue/fifthave_teaser.jpg?sc_lang=en",
+            "description": "The Metropolitan Museum of Art is one of the world's largest and finest art museums. Its collection spans 5,000 years of world culture, from prehistory to the present and from every part of the globe.",
+            "neighborhood": 12
+        }
+
     }
 
 
