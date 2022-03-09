@@ -182,6 +182,18 @@
             "image": "https://fastly.4sqi.net/img/general/200x200/399431197_jMzOyZbn0H1Xviy6VIQDtkAnP4DG9OFpXSOZ1Y50rIw.jpg",
             "neighborhood": 8
         }
+    },
+    {
+        "model": "main_app.accommodation",
+        "pk": 1,
+        "fields": {
+            "name": "POD Brooklyn",
+            "price": 2,
+            "image": "https://q-xx.bstatic.com/xdata/images/hotel/max300/151931997.jpg?k=dbc8e7128a19015e150ebd890d6a1955941daceb04864aa1400f804e9d4294b5&o=",
+            "type_of": "Hotel",
+            "description": "Pod Brooklyn is full of surprises. Functional yet fashionable, chic yet simple, and industrial yet comfortable.",
+            "neighborhood": 10
+        }
     }
 
 
