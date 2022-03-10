@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Neighborhood Detail</h1>
+    <h1>{{ neighborhood.name }} Points of Interest</h1>
+    {% for point_of_interest in points_of_interest %}
+    <h6><a href="{% url 'point_of_interest_detail' point_of_interest.id %}">{{ point_of_interest.name }}</a></h6>
+    {% endfor %}
 {% endblock content %}
     
