@@ -76,17 +76,8 @@ WSGI_APPLICATION = 'destinationNYC.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'destinationNYC',
-        'USER': 'postgres',
-        'PASSWORD': 'julianadrian1',
-        'HOST': 'localhost',
-        'PORT': '5432'
-=======
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'destinationNYC',
->>>>>>> master
+        'NAME': 'ny_travels',
     }
 }
 
