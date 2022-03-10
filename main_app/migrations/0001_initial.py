@@ -42,12 +42,7 @@ class Migration(migrations.Migration):
             name='SightSeeing',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=275)),
-<<<<<<< HEAD
                 ('price', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
-=======
-                ('price', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)])),
->>>>>>> master
                 ('description', models.TextField(max_length=275)),
                 ('point_of_interest', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.point_of_interest')),
             ],
@@ -69,11 +64,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=250)),
                 ('cuisine', models.CharField(max_length=250)),
-<<<<<<< HEAD
                 ('price', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
-=======
-                ('price', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)])),
->>>>>>> master
+
                 ('image', models.CharField(max_length=350)),
                 ('description', models.TextField(max_length=350)),
                 ('point_of_interest', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.point_of_interest')),
@@ -85,11 +77,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=275)),
                 ('type_of', models.CharField(max_length=150)),
-<<<<<<< HEAD
                 ('price', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
-=======
-                ('price', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)])),
->>>>>>> master
                 ('description', models.TextField(max_length=275)),
                 ('point_of_interest', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.point_of_interest')),
             ],
@@ -99,11 +87,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=250)),
-<<<<<<< HEAD
                 ('price', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
-=======
-                ('price', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)])),
->>>>>>> master
                 ('image', models.CharField(max_length=350)),
                 ('description', models.TextField(max_length=350)),
                 ('point_of_interest', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_app.point_of_interest')),
@@ -114,11 +98,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=250)),
-<<<<<<< HEAD
                 ('price', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)])),
-=======
-                ('price', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)])),
->>>>>>> master
                 ('type_of', models.CharField(max_length=150)),
                 ('image', models.CharField(max_length=350)),
                 ('description', models.TextField(max_length=350)),

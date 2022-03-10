@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'destinationNYC.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'destinationNYC',
+        'NAME': 'nyc_travels',
     }
 }
 
