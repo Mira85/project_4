@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+{% block content %}
+<h1>{{ borough.name }} Neighborhoods</h1>
+    {% for neighborhood in neighborhoods %}
+    <div><a href="{% url 'neighborhood_detail' neighborhood.id %}">
+        {{ neighborhood.name }}
+    </a></div>
+    {% endfor %}
+{% endblock content %}
+    
