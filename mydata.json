@@ -35,7 +35,7 @@
         "model": "main_app.borough",
         "pk": 5,
         "fields": {
-            "name": "The Bronx",
+            "name": "Bronx",
             "image": "https://media.timeout.com/images/103486998/750/562/image.jpg"
         }
     },
@@ -70,7 +70,6 @@
             "borough": 1
         }
     },
-    
     {
         "model": "main_app.neighborhood",
         "pk": 4,
@@ -172,6 +171,16 @@
         }
     },
     {
+        "model": "main_app.neighborhood",
+        "pk": 14,
+        "fields": {
+            "name": "Bronx Park",
+            "description": "The park is bounded by Southern Boulevard to the southwest, Webster Avenue to the northwest, Gun Hill Road to the north, Bronx Park East to the east, and East 180th Street to the south. With an area of 718 acres (2.91 km2), Bronx Park is the eighth-largest park in New York City.",
+            "image": "https://citylimits.org/wp-content/uploads/2015/09/Chin.BronxParks-1170x878.jpg",
+            "borough": 5
+        }
+    },
+    {
         "model": "main_app.food",
         "pk": 1,
         "fields": {
@@ -240,12 +249,66 @@
             "description": "Since its founding in 1869, the Museum has advanced its global mission to discover, interpret, and disseminate information about human cultures, the natural world, and the universe through a wide-ranging program of scientific research, education, and exhibition.",
             "neighborhood": 13
         }
+    },
+    {
+        "model": "main_app.entertainment",
+        "pk": 1,
+        "fields": {
+            "name": "Broadway Theatre",
+            "type_of": "Theatre",
+            "description": "The Broadway Theatre is one of a select few legitimate theaters that was originally built as a movie house. Its seating capacity of 1,765 made it ideal for the changeover to musical theater in 1930. It showed movies for a brief period again in the 1950s but has been a legitimate theater ever since.",
+            "image": "https://a.cdn-hotels.com/gdcs/production59/d221/51c89c60-4fa3-4a7f-ace0-64e47c2c60ee.jpg",
+            "price": 4,
+            "neighborhood": 1 
+        }
+    },
+    {
+        "model": "main_app.entertainment",
+        "pk": 2,
+        "fields": {
+            "name": "Luna Park",
+            "type_of": "Amusement Park",
+            "description": "Luna Park was an amusement park in Coney Island, Brooklyn, New York City. Luna Park was located on a site bounded by Surf Avenue to the south, West 8th Street to the east, Neptune Avenue to the north, and West 12th Street to the west. Luna Park opened in 1903 and operated until 1944.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/04/Luna_Park_historic_postcard.jpg",
+            "price": 3,
+            "neighborhood": 2 
+        }
+    },
+    {
+        "model": "main_app.entertainment",
+        "pk": 3,
+        "fields": {
+            "name": "Slate NYC",
+            "type_of": "Club",
+            "description": "SLATE defines elegance and excitement. Located in the heart of Chelsea, this one-of-a-kind upscale bar, lounge and club offers something for everyone. From film stars and musicians, to bankers and brokers, many of the world’s hottest celebrities and prestigious corporations have discovered that SLATE is the perfect venue for their night out or event. One of New York’s only venues with private and semi-private reception spaces, SLATE offers sleek decor in 16,000 square feet over two floors, flexible floor layouts, sumptuous modern cuisine, group entertainment games such as pool, ping-pong, and foosball, state-of-the-art audiovisual capabilities, a spacious dance floor and banquet seating, a Funktion-One soundsystem, and two huge hi-def video walls!",
+            "image": "https://slate-ny.com/wp-content/uploads/2018/07/DMitchell_LureGroup_SlateNY_05-copy-min-1.jpg",
+            "price": 3,
+            "neighborhood": 3
+        }
+    },
+    {
+        "model": "main_app.entertainment",
+        "pk": 4,
+        "fields": {
+            "name": "Bronx Zoo",
+            "type_of": "Zoo",
+            "description": "It is one of the largest zoos in the United States by area and is the largest metropolitan zoo in the United States by area, comprising 265 acres (107 ha) of park lands and naturalistic habitats separated by the Bronx River. On average, the zoo has 2.15 million visitors each year as of 2009.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bronx_Zoo_001.jpg/1200px-Bronx_Zoo_001.jpg",
+            "price": 3,
+            "neighborhood": 14
+        }
+    },
+    {
+        "model": "main_app.sightseeing",
+        "pk": 1,
+        "fields": {
+            "name": "Empire State Building",
+            "description": "The world's most magnificent Art Deco skyscraper, it's a living piece of New York history and an instantly recognizable symbol of city culture today. Standing at 102 stories and 1,454 feet at its pinnacle, the Empire State Building was the tallest building in the world for nearly 40 years after its completion.",
+            "price": 2,
+            "neighborhood": 1
+        }
+    },
+    {
+
     }
-    
-
-
-
-    
-    
-    
     ]
