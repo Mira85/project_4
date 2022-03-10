@@ -23,30 +23,16 @@ def neighborhood_index(request):
 
 def neighborhood_detail(request, neighborhood_id):
     neighborhood = Neighborhood.objects.get(id=neighborhood_id)
-    entertainment = Entertainment.objects.get(neighborhood=neighborhood_id)
-    accommodation = Accommodation.objects.get(neighborhood=neighborhood_id)
-    art_culture = Art_Culture.objects.get(neighborhood=neighborhood_id)
-    sightseeing = SightSeeing.objects.get(neighborhood=neighborhood_id)
-    nature = Nature.objects.get(neighborhood=neighborhood_id)
+    points_of_interest = Point_Of_Interest.objects.filter(neighborhood=neighborhood_id)
     return render(request, 'neighborhood/neighborhood_detail.html', {
         'neighborhood': neighborhood,
-        'entertainment' : entertainment,
-        'accommodation' : accommodation,
-        'art_culture' : art_culture,
-        'sightseeing' : sightseeing,
-        'nature' : nature
+        'points_of_interest': points_of_interest
     })
 
 def point_of_interest_index(request):
-    entertainment = Entertainment.objects.all()
-    accommodation = Accommodation.objects.all()
-    sightseeing = SightSeeing.objects.all()
-    food = Food.objects.all()
-    art_culture = Art_Culture.objects.all()
-    return render(request, 'interest/interest_index.html', {
-        'entertainment': entertainment,
-        'accomodation': accommodation,
-        'sightseeing': sightseeing,
-        'food': food,
-        'art_culture': art_culture
-    })
+    points_of_interest = Point_Of_Interest.objects.all()
+    return render(request, 'interest/interest_index.html', { 'points_of_interest' : points_of_interest })
+
+def point_of_interest_detail(request, point_of_interest_id):
+    point_of_interest = Point_Of_Interest.objects.get(id=point_of_interest_id)
+    return render(request, 'interest/interest_detail.html', { 'point_of_interest' : point_of_interest})
