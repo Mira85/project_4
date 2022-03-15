@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.contrib.auth.models import User
-
+from django.contrib.auth.models import User\
 # Create your models here.
 class Borough(models.Model):
     name = models.CharField(max_length=175)
