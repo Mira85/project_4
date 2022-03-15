@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .forms import ReviewForm
 # Create your views here.
 
 def home(request):
@@ -37,7 +38,11 @@ def point_of_interest_index(request):
 
 def point_of_interest_detail(request, point_of_interest_id):
     point_of_interest = Point_Of_Interest.objects.get(id=point_of_interest_id)
-    return render(request, 'interest/interest_detail.html', { 'point_of_interest' : point_of_interest})
+    review_form = ReviewForm()
+    return render(request, 'interest/interest_detail.html', { 
+        'point_of_interest' : point_of_interest,
+        'review_form': review_form
+         })
 
 
 def signup(request):
@@ -53,4 +58,13 @@ def signup(request):
     form = UserCreationForm()
     context = { 'form': form, 'error': error_message }
     return render(request, 'registration/signup.html', context)
+
+def add_review(request, point_of_interest_id, user_id):
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        new_review = form.save(commit = False)
+        new_review.point_of_interest_id = point_of_interest_id
+        new_review.user_id = user_id
+        new_review.save()
+    return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
     
