@@ -8,7 +8,7 @@ import requests
 # Create your views here.
 
 API_KEY = config('API_KEY')
-
+NEIGHBORHOOD_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
 
 def home(request):
     return render(request, 'home.html')
@@ -29,42 +29,64 @@ def neighborhood_index(request):
     neighborhoods = Neighborhood.objects.all()
     return render(request, 'neighborhood/neighborhood_index.html', { 'neighborhoods' : neighborhoods })
 
-# def neighborhood_detail(request, neighborhood_id):
-#     neighborhood = Neighborhood.objects.get(id=neighborhood_id)
-#     points_of_interest = Point_Of_Interest.objects.filter(neighborhood=neighborhood_id)
-#     return render(request, 'neighborhood/neighborhood_detail.html', {
-#         'neighborhood': neighborhood,
-#         'points_of_interest': points_of_interest
-#     })
 
 def neighborhood_detail(request, neighborhood_id):
     neighborhood = Neighborhood.objects.get(id=neighborhood_id)
-    
-    place_id_url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={neighborhood.name}&type=tourist_attraction&key={API_KEY}"
     payload={}
     headers = {}
-    response = requests.get(place_id_url, headers=headers, data=payload)
-    neighborhood_tourist_attraction = response.json()['results']
+    result_list = []
     place_list = []
-    for result in neighborhood_tourist_attraction:
-        places = {
-            "name": result['name'],
-            "address": result['formatted_address'],
-            "interest_category": result['types'],
-            "rating": result['rating'],
-            "id": result['place_id'],
-        }
-        place_list.append(places)
+    
+    # API URLS
+    # Tourist Attractions
+    tourist_attraction_url = f"{NEIGHBORHOOD_BASE_URL}{neighborhood.name}&type=tourist_attraction&key={API_KEY}"
+    response = requests.get(tourist_attraction_url, headers=headers, data=payload)
+    neighborhood_tourist_attractions = response.json()['results']
+    result_list.append(neighborhood_tourist_attractions)
+    # Restaurants
+    restaurant_url = f"{NEIGHBORHOOD_BASE_URL}{neighborhood.name}&type=restaurant&key={API_KEY}"
+    response = requests.get(restaurant_url, headers=headers, data=payload)
+    neighborhood_restaurants = response.json()['results']
+    result_list.append(neighborhood_restaurants)
 
-    example = neighborhood_tourist_attraction[0]
+    for genre in result_list:
+        for result in genre:
+            places = {
+                "name": result['name'],
+                "address": result['formatted_address'],
+                "interest_category": result['types'],
+                "rating": result['rating'],
+                "id": result['place_id'],
+            }
+            place_list.append(places)
+
+    # for result in neighborhood_restaurants:
+    #     places = {
+    #         "name": result['name'],
+    #         "address": result['formatted_address'],
+    #         "interest_category": result['types'],
+    #         "rating": result['rating'],
+    #         "id": result['place_id'],
+    #     }
+    #     place_list.append(places)
+    
+    # for result in neighborhood_tourist_attractions:
+    #     places = {
+    #         "name": result['name'],
+    #         "address": result['formatted_address'],
+    #         "interest_category": result['types'],
+    #         "rating": result['rating'],
+    #         "id": result['place_id'],
+    #     }
+    #     place_list.append(places)
+
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
         'points_of_interest': place_list,
     } )
 
 def point_of_interest_index(request):
-    points_of_interest = Point_Of_Interest.objects.all()
-    return render(request, 'interest/interest_index.html', { 'points_of_interest' : points_of_interest })
+    return render(request, 'interest/interest_index.html')
 
 def point_of_interest_detail(request, point_of_interest_id):
     fetch_detail_url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={point_of_interest_id}&key={API_KEY}"
