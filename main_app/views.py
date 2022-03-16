@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ReviewForm
+
 # Create your views here.
 
 def home(request):
@@ -38,10 +39,21 @@ def point_of_interest_index(request):
 
 def point_of_interest_detail(request, point_of_interest_id):
     point_of_interest = Point_Of_Interest.objects.get(id=point_of_interest_id)
+    current_user_review = point_of_interest.review_set.all().filter(user__exact=request.user.id)
+    print('userreview', current_user_review)
+    other_user_review = point_of_interest.review_set.all().exclude(user__exact=request.user.id)
+    print('review', other_user_review)
+
+
     review_form = ReviewForm()
+    if current_user_review:
+        review_form = ReviewForm(instance = current_user_review.first())
+
     return render(request, 'interest/interest_detail.html', { 
         'point_of_interest' : point_of_interest,
-        'review_form': review_form
+        'review_form': review_form,
+        'current_user_review' :  current_user_review,
+        'other_user_review': other_user_review
          })
 
 
@@ -61,10 +73,30 @@ def signup(request):
 
 def add_review(request, point_of_interest_id, user_id):
     form = ReviewForm(request.POST)
-    if form.is_valid():
-        new_review = form.save(commit = False)
-        new_review.point_of_interest_id = point_of_interest_id
-        new_review.user_id = user_id
-        new_review.save()
-    return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
-    
+
+    if request.method == "POST":
+        if form.is_valid():
+            new_review = form.save(commit = False)
+            new_review.point_of_interest_id = point_of_interest_id
+            new_review.user_id = user_id
+            new_review.save()
+        return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
+
+
+def update_review(request, point_of_interest_id, review_id):
+    data = Review.objects.get(id=review_id)
+   
+    if request.method == "POST":
+        form = ReviewForm(request.POST, instance=data)
+        if form.is_valid():
+            form.save()
+        return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
+   
+
+
+def delete_review(request, point_of_interest_id, review_id):
+    data = Review.objects.get(id=review_id)
+
+    if request.method == "POST":
+        data.delete()
+        return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
