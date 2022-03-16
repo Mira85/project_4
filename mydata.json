@@ -39,6 +39,16 @@
             "image": "https://media.timeout.com/images/103486998/750/562/image.jpg"
         }
     },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 1,
+        "fields": {
+            "name": "Corona",
+            "description": "Corona is a neighborhood in the borough of Queens in New York City. It is bordered by Flushing and Flushing Meadows–Corona Park to the east, Jackson Heights to the west, Forest Hills and Rego Park to the south, Elmhurst to the southwest, and East Elmhurst to the north. Corona's main thoroughfares include Corona Avenue, Roosevelt Avenue, Northern Boulevard, Junction Boulevard, and 108th Street.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Corona_Av%2C_108_St%2C_and_52_Av.JPG/300px-Corona_Av%2C_108_St%2C_and_52_Av.JPG",
+            "borough": 4
+        }
+    },
     
     {
         "model": "main_app.neighborhood",
@@ -509,7 +519,7 @@
             "description": "The Broadway Theatre is one of a select few legitimate theaters that was originally built as a movie house. Its seating capacity of 1,765 made it ideal for the changeover to musical theater in 1930. It showed movies for a brief period again in the 1950s but has been a legitimate theater ever since.",
             "image": "https://a.cdn-hotels.com/gdcs/production59/d221/51c89c60-4fa3-4a7f-ace0-64e47c2c60ee.jpg",
             "price": 4,
-            "neighborhood": 1 
+            "neighborhood": 6
         }
     },
     {
@@ -561,6 +571,6 @@
             "description": "The world's most magnificent Art Deco skyscraper, it's a living piece of New York history and an instantly recognizable symbol of city culture today. Standing at 102 stories and 1,454 feet at its pinnacle, the Empire State Building was the tallest building in the world for nearly 40 years after its completion.",
             "price": 2,
             "image": "https://marvel-b1-cdn.bc0a.com/f00000000179470/www.esbnyc.com/sites/default/files/styles/on_3_cols/public/2020-02/86_2.jpg?itok=z2dsQf8n",
-            "neighborhood": 1
+            "neighborhood": 2
         }
     }]

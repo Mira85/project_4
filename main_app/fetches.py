@@ -14,11 +14,12 @@ for result in manhattan_tourist_attraction:
         "address": result['formatted_address'],
         "interest_category": result['types'],
         "rating": result['rating'],
-        "image": result['photos'][0]['html_attributions'][0].split('"')[1]
+        "image": result['photos'][0]['photo_reference']
     }
     place_list.append(places)
 
 
+print(place_list[0]['image'])
     
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Manhattan&type=restaurant&key=AIzaSyBd3BeYOCFPOuYIBOD9HlPYYL__hbOm8mU"
 
@@ -52,6 +53,3 @@ for result in manhattan_parks:
         "rating": result['rating']
     }
     place_list.append(places)
-
-
-print(place_list)
