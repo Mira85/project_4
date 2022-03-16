@@ -63,12 +63,6 @@ def neighborhood_detail(request, neighborhood_id):
     neighborhood_lodging = response.json()['results']
     result_list.append(neighborhood_lodging)
 
-    # Museum
-    # museum_url = f"{NEIGHBORHOOD_BASE_URL}{neighborhood.name}&type=museum&key={API_KEY}"
-    # response = requests.get(museum_url, headers=headers, data=payload)
-    # neighborhood_museums = response.json()['results']
-    # result_list.append(neighborhood_museums)
-
     # Clothing_Store
     clothing_store_url = f"{NEIGHBORHOOD_BASE_URL}{neighborhood.name}&type=clothing_store&key={API_KEY}"
     response = requests.get(clothing_store_url, headers=headers, data=payload)
@@ -102,7 +96,7 @@ def neighborhood_detail(request, neighborhood_id):
 
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
-        'points_of_interest': place_list,
+        'points_of_interest': place_list
     } )
 
 def point_of_interest_index(request):
