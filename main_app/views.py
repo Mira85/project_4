@@ -9,6 +9,7 @@ import requests
 
 API_KEY = config('API_KEY')
 NEIGHBORHOOD_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
+PHOTO_BASE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference="
 
 def home(request):
     return render(request, 'home.html')
@@ -78,15 +79,14 @@ def neighborhood_detail(request, neighborhood_id):
     for genre in result_list:
         for result in genre:
             if ['photos'][0] in result:
-                print(result['photos'][0]['photo_reference'])
-            if ['photos'][0] in result:
+                photo_url = f"{PHOTO_BASE_URL}{result['photos'][0]['photo_reference']}&key={API_KEY}"
                 place = {
                     "name": result['name'],
                     "address": result['formatted_address'],
                     "interest_category": result['types'],
                     "rating": result['rating'],
                     "id": result['place_id'],
-                    'photo': result['photos'][0]['photo_reference']
+                    'photo': photo_url
                 }
                 place_list.append(place)
             else:
@@ -96,20 +96,9 @@ def neighborhood_detail(request, neighborhood_id):
                     "interest_category": result['types'],
                     "rating": result['rating'],
                     "id": result['place_id'],
-                    'photo': "Has No Photo"
+                    'photo': "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"
                 }
                 place_list.append(place)
-                
-            # else: 
-            #     place = {
-            #         "name": result['name'],
-            #         "address": result['formatted_address'],
-            #         "interest_category": result['types'],
-            #         "rating": result['rating'],
-            #         "id": result['place_id'],
-            #         "photo": 'HAS PHOTO'
-            #     }
-                # place_list.append(place)
 
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
@@ -125,7 +114,7 @@ def point_of_interest_detail(request, point_of_interest_id):
     headers = {}
     response = requests.get(fetch_detail_url, headers=headers, data=payload)
     point_of_interest = response.json()['result']
-    photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={point_of_interest['photos'][0]['photo_reference']}&key={API_KEY}"
+    photo_url = f"{PHOTO_BASE_URL}{point_of_interest['photos'][0]['photo_reference']}&key={API_KEY}"
     place_details = {
         'address': point_of_interest['formatted_address'],
         # 'phone_number': point_of_interest['formatted_phone_number'],

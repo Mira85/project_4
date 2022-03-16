@@ -5,11 +5,18 @@
     <h6>
         {% for point_of_interest in points_of_interest %}
             <div>
-                PHOTO: {{ point_of_interest.photo }}
+                <img src="{{ point_of_interest.photo }}" alt="">
+                <br>
                 <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
                     {{ point_of_interest.name }}
                 </a>
                 <br>
+                Categories: 
+                    
+                    {% for category in point_of_interest.interest_category %}
+                        
+                    {% endfor %}
+                        
                 {{ point_of_interest.interest_category }}
             </div>
         {% endfor %}
