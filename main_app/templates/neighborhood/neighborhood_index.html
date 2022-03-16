@@ -1,4 +1,13 @@
 {% extends 'base.html' %} {% block content %}
     <h1 class="title">All Neighborhoods</h1>
+    {% for neighborhood in neighborhoods %}
+        <div>
+            <a href="{% url 'neighborhood_detail' neighborhood.id %}">
+                <img src="{{ neighborhood.image }}" alt="">
+                <br>
+                {{ neighborhood.name}}
+            </a>
+        </div>
+    {% endfor %}
 {% endblock %}
     
