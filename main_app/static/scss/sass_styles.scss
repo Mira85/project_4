@@ -1,0 +1,25 @@
+#borough_detail{
+    margin: 0 auto; 
+
+    #borough_detail_h1{
+        text-align: center;
+        margin: 2rem;
+    }
+    .neighborhoods{
+        margin: 1.4em auto;
+        text-align: center;
+        height: 50%;
+        
+        a{
+            width: 100%;
+            height: 50%;
+            
+            img{
+                width: 100%;
+                height: 50%;
+            }
+        }
+
+    }
+}
+
