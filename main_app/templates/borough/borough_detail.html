@@ -2,14 +2,14 @@
 {% block content %}
 <h1>{{ borough.name }} Neighborhoods</h1>
     {% for neighborhood in neighborhoods %}
-    <div>
+    <div class="neighborhoods">
         <a href="{% url 'neighborhood_detail' neighborhood.id %}">
             <img src="{{ neighborhood.image }}" alt="">
             <br>
             {{ neighborhood.name }}
         </a>
         <br>
-        <span>{{ neighborhood.description }}</span>
+        <span id="description">{{ neighborhood.description }}</span>
     </div>
     {% endfor %}
 {% endblock content %}

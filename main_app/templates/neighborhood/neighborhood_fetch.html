@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
     <h6>
         {% for point_of_interest in points_of_interest %}
             <div>
@@ -16,8 +14,6 @@
                     {% for category in point_of_interest.interest_category %}
                         
                     {% endfor %}
-                        
-                {{ point_of_interest.interest_category }}
             </div>
         {% endfor %}
             
