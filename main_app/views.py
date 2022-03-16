@@ -3,8 +3,12 @@ from .models import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ReviewForm
+from decouple import config
 import requests
 # Create your views here.
+
+API_KEY = config('API_KEY')
+
 
 def home(request):
     return render(request, 'home.html')
@@ -36,7 +40,7 @@ def neighborhood_index(request):
 def neighborhood_detail(request, neighborhood_id):
     neighborhood = Neighborhood.objects.get(id=neighborhood_id)
     
-    place_id_url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={neighborhood.name}&type=tourist_attraction&key=AIzaSyBd3BeYOCFPOuYIBOD9HlPYYL__hbOm8mU"
+    place_id_url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={neighborhood.name}&type=tourist_attraction&key={API_KEY}"
     payload={}
     headers = {}
     response = requests.get(place_id_url, headers=headers, data=payload)
@@ -63,12 +67,12 @@ def point_of_interest_index(request):
     return render(request, 'interest/interest_index.html', { 'points_of_interest' : points_of_interest })
 
 def point_of_interest_detail(request, point_of_interest_id):
-    fetch_detail_url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={point_of_interest_id}&key=AIzaSyBd3BeYOCFPOuYIBOD9HlPYYL__hbOm8mU"
+    fetch_detail_url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={point_of_interest_id}&key={API_KEY}"
     payload={}
     headers = {}
     response = requests.get(fetch_detail_url, headers=headers, data=payload)
     point_of_interest = response.json()['result']
-    photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={point_of_interest['photos'][0]['photo_reference']}&key=AIzaSyBd3BeYOCFPOuYIBOD9HlPYYL__hbOm8mU"
+    photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={point_of_interest['photos'][0]['photo_reference']}&key={API_KEY}"
     place_details = {
         'address': point_of_interest['formatted_address'],
         # 'phone_number': point_of_interest['formatted_phone_number'],
