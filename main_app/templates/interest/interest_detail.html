@@ -2,12 +2,7 @@
 {% block content %}
     <h1>{{ point_of_interest.name }}</h1>
     <img src="{{point_of_interest.image}}" alt="">
-    <form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
-        {% csrf_token %}
-        {{ review_form.as_p }}
-        <input type="submit" value="Add Review" class="btn btn-primary">
-    </form>
-
+   
     <div>
         {% for review in point_of_interest.review_set.all  %}
            <p>{{review.ratings}}</p> 

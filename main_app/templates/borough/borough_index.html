@@ -1,7 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 <h1 class="title">Boroughs of NYC</h1>
     {% for borough in boroughs %}
-        <h6><a href="{% url 'borough_detail' borough.id%}">{{ borough.name }}</a></h6>
+    <img src="{{ borough.image }}" alt="">
+    <h6>
+        <a href="{% url 'borough_detail' borough.id%}">{{ borough.name }}</a>
+    </h6>
     {% endfor %}
 {% endblock %}
     

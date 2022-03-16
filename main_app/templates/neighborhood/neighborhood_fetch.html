@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <h6>
+        {% for point_of_interest in points_of_interest %}
+            <div>
+                <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
+                    {{ point_of_interest.name }}
+                </a>
+            </div>
+        {% endfor %}
+            
+    </h6>
+{% endblock content %}
+    
