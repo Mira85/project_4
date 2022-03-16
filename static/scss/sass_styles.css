@@ -1,0 +1,32 @@
+#borough_detail {
+  margin: 0 auto; }
+  #borough_detail #borough_detail_h1 {
+    text-align: center;
+    margin: 2rem; }
+  #borough_detail .neighborhoods {
+    margin: 1.4em auto;
+    text-align: center;
+    height: 50%; }
+    #borough_detail .neighborhoods a {
+      width: 100%;
+      height: 50%; }
+      #borough_detail .neighborhoods a img {
+        width: 100%;
+        height: 50%; }
+
+#neighborhood_fetch {
+  margin: 0 auto; }
+  #neighborhood_fetch h1 {
+    text-align: center;
+    margin: 2rem;
+    font-size: 2.7rem; }
+  #neighborhood_fetch section h3 {
+    text-align: center; }
+  #neighborhood_fetch section hr {
+    width: 75%;
+    margin: 1.7em auto; }
+  #neighborhood_fetch .interests {
+    margin: 0 auto;
+    text-align: center; }
+
+/*# sourceMappingURL=sass_styles.css.map */
