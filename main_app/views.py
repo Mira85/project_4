@@ -8,7 +8,7 @@ import requests
 # Create your views here.
 
 API_KEY = config('API_KEY')
-
+NEIGHBORHOOD_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
 
 def home(request):
     return render(request, 'home.html')
@@ -29,24 +29,18 @@ def neighborhood_index(request):
     neighborhoods = Neighborhood.objects.all()
     return render(request, 'neighborhood/neighborhood_index.html', { 'neighborhoods' : neighborhoods })
 
-# def neighborhood_detail(request, neighborhood_id):
-#     neighborhood = Neighborhood.objects.get(id=neighborhood_id)
-#     points_of_interest = Point_Of_Interest.objects.filter(neighborhood=neighborhood_id)
-#     return render(request, 'neighborhood/neighborhood_detail.html', {
-#         'neighborhood': neighborhood,
-#         'points_of_interest': points_of_interest
-#     })
 
 def neighborhood_detail(request, neighborhood_id):
     neighborhood = Neighborhood.objects.get(id=neighborhood_id)
-    
-    place_id_url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={neighborhood.name}&type=tourist_attraction&key={API_KEY}"
     payload={}
     headers = {}
-    response = requests.get(place_id_url, headers=headers, data=payload)
-    neighborhood_tourist_attraction = response.json()['results']
     place_list = []
-    for result in neighborhood_tourist_attraction:
+    
+    # API URLS
+    tourist_attraction_url = f"{NEIGHBORHOOD_BASE_URL}{neighborhood.name}&type=tourist_attraction&key={API_KEY}"
+    response = requests.get(tourist_attraction_url, headers=headers, data=payload)
+    neighborhood_tourist_attractions = response.json()['results']
+    for result in neighborhood_tourist_attractions:
         places = {
             "name": result['name'],
             "address": result['formatted_address'],
@@ -56,7 +50,7 @@ def neighborhood_detail(request, neighborhood_id):
         }
         place_list.append(places)
 
-    example = neighborhood_tourist_attraction[0]
+    example = neighborhood_tourist_attractions[0]
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
         'points_of_interest': place_list,
