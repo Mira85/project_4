@@ -120,8 +120,21 @@ def point_of_interest_detail(request, point_of_interest_id):
         # 'reviews': point_of_interest['reviews'],   
     }
     
+
+    all_reviews = Review.objects.filter(point_of_interest_id = point_of_interest_id )
+    print(type(all_reviews))
+    user_review = all_reviews.filter(user__exact=request.user.id)
+    other_review = all_reviews.exclude(user__exact=request.user.id)
+
+    review_form=ReviewForm()
+    if user_review:
+        review_form = ReviewForm(instance = user_review.first())
+
     return render(request, 'interest/interest_fetch.html', {
-        'point_of_interest': place_details
+        'point_of_interest': place_details,
+        'review_form': review_form,
+        'user_review': user_review,
+        'other_review': other_review
     })
 
 
