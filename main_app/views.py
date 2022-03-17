@@ -135,14 +135,9 @@ def point_of_interest_detail(request, point_of_interest_id):
 
     return render(request, 'interest/interest_fetch.html', {
         'point_of_interest': place_details,
-<<<<<<< HEAD
-        'reviews': reviews,
-        'review_form': review_form
-=======
         'review_form': review_form,
         'user_review': user_review,
         'other_review': other_review
->>>>>>> master
     })
 
 
@@ -160,17 +155,8 @@ def signup(request):
     context = { 'form': form, 'error': error_message }
     return render(request, 'registration/signup.html', context)
 
-def add_review(request, point_of_interest_id):
+def add_review(request, point_of_interest_id, user_id):
     form = ReviewForm(request.POST)
-<<<<<<< HEAD
-    if form.is_valid():
-        new_review = form.save(commit = False)
-        new_review.interest_id = point_of_interest_id
-        new_review.save()
-    return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
-    
-=======
-
     if request.method == "POST":
         if form.is_valid():
             new_review = form.save(commit = False)
@@ -197,4 +183,3 @@ def delete_review(request, point_of_interest_id, review_id):
     if request.method == "POST":
         data.delete()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
->>>>>>> master

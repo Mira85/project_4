@@ -12,7 +12,7 @@
                 {{ neighborhood.name }}
             </a>
             <br>
-            <span id="description">{{ neighborhood.description|slice:150 }}...
+            <span id="description">{{ neighborhood.description|truncatewords:30 }}
                 <a href="{% url 'neighborhood_detail' neighborhood.id %}">view more</a>
             </span>
         </div>
