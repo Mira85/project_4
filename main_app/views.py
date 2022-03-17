@@ -125,7 +125,7 @@ def point_of_interest_detail(request, point_of_interest_id):
     print(type(all_reviews))
     user_review = all_reviews.filter(user__exact=request.user.id)
     other_review = all_reviews.exclude(user__exact=request.user.id)
-
+    print("************",user_review)
     review_form=ReviewForm()
     if user_review:
         review_form = ReviewForm(instance = user_review.first())
