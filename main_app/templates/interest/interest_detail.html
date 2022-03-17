@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
     <h1>{{ point_of_interest.name }}</h1>
     <img src="{{point_of_interest.image}}" alt="">
@@ -10,5 +10,25 @@
         {% endfor %}
     </div>
     
+    <input type="submit" value="delete review" class="btn btn-primary">
+</form>
+{% else %}
+<form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
+    {% csrf_token %}
+    {{ review_form.as_p }}
+    <input type="submit" value="Add review" class="btn btn-primary">
+</form>
+{% endif %}
+
+
+
+<div>
+    {% for review in other_review  %}
+    <hr />
+    <p>{{review.ratings}}</p>
+    <p>{{review.description}}</p>
+    <hr />
+    {% endfor %}
+</div>
+
 {% endblock content %}
-    

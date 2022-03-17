@@ -27,10 +27,11 @@ class Review(models.Model):
         ])
     description = models.TextField(max_length = 300)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    interest_id = models.CharField(max_length=220)
+
+    point_of_interest_id = models.CharField(max_length=220)
 
     def __str__(self):
-       return f'{self.point_of_interest} has {self.ratings} rating'
+       return f'{self.point_of_interest_id} has {self.ratings} rating'
 
 
 
