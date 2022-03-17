@@ -38,7 +38,7 @@
             }
 
             // Move carousel to updated slide
-            moveCarouselTo(Slide);
+            moveCarouselTo(slide);
         }
     }
 
