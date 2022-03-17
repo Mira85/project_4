@@ -53,7 +53,7 @@
                 slide--;
             }
 
-            // Move carousel to updated slide
+            // Move carousel to the updated slide
             moveCarouselTo(slide);
         }
     }
