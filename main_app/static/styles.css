@@ -1,0 +1,54 @@
+/* Navbar styling START */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+}
+
+.nav-item {
+    float: left;
+}
+
+.nav-link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: lightgrey;
+    color: grey;
+}
+
+/* Navbar styling END */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: gray;
+    color: white;
+    padding-top: 0;
+    text-align: right;
+}
+
+.title {
+    text-align: center;
+    margin-top: 2%;
+}
+
+a {
+    text-decoration: none;
+}

@@ -43,12 +43,13 @@
         "model": "main_app.neighborhood",
         "pk": 1,
         "fields": {
-            "name": "Midtown",
-            "description": "With all the noise, color, flash and bustle of Times Square, Broadway and Rockefeller Center, Midtown is the neighborhood many picture first when they think of New York. Rockefeller Center, Grand Central Terminal and St. Patrick’s Cathedral are all among the world’s most recognizable destinations. The neighborhood isn’t just sightseeing, however: it also boasts top-flight restaurants and bars, including the Theatre District’s Restaurant Row and rowdy Hell’s Kitchen’s bars and clubs.",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/West_side_of_Manhattan_from_Hudson_Commons_%2895103p%29.jpg/1024px-West_side_of_Manhattan_from_Hudson_Commons_%2895103p%29.jpg",
-            "borough": 1
+            "name": "Corona",
+            "description": "Corona is a neighborhood in the borough of Queens in New York City. It is bordered by Flushing and Flushing Meadows–Corona Park to the east, Jackson Heights to the west, Forest Hills and Rego Park to the south, Elmhurst to the southwest, and East Elmhurst to the north. Corona's main thoroughfares include Corona Avenue, Roosevelt Avenue, Northern Boulevard, Junction Boulevard, and 108th Street.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Corona_Av%2C_108_St%2C_and_52_Av.JPG/300px-Corona_Av%2C_108_St%2C_and_52_Av.JPG",
+            "borough": 4
         }
     },
+    
     {
         "model": "main_app.neighborhood",
         "pk": 2,
@@ -59,7 +60,7 @@
             "borough": 3
         }
     },
-    
+
     {
         "model": "main_app.neighborhood",
         "pk": 3,
@@ -181,6 +182,256 @@
         }
     },
     {
+        "model": "main_app.neighborhood",
+        "pk": 15,
+        "fields": {
+            "name": "Harlem", 
+            "description": "Between its soul food restaurants, intimate jazz clubs and lively streetscapes, Harlem hits all five of your senses. The historically African American neighborhood is one of the largest and most diverse locales in the city. By day, wander around streets lined with brownstones and colorful art, or visit The Schomburg Center for Research in Black Culture. And once the sun sets, catch comedy acts and performing arts at the world-famous Apollo theater.",
+            "image": "https://www.tripsavvy.com/thmb/ZlGgF2-I2AJPt8hX3j51vYlwpBE=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-530144894-5be08fcac9e77c0051e60354.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 16,
+        "fields": {
+            "name": "East Harlem",
+            "description": "Nicknamed “El Barrio” (or, “the neighborhood”) by its Latin American community, East Harlem exudes culture and history. It’s come a long way since Keith Haring painted his “Crack Is Wack” mural (expected to be back on public view in 2019) in the mid-1980s and now boasts new condos, chic cafes and countless restaurants.",
+            "image": "https://www.tripsavvy.com/thmb/eVHrSP0ogVlzg00xMv-o038X2nA=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-536213228-5be0912ec9e77c00513a76f2.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 17,
+        "fields": {
+            "name": "Washington Heights",
+            "description": "It might feel like a trek getting to the northern reaches of Manhattan, but it’s worth the journey. The neighborhoods are filled with hidden treasures that will transport you back in time. The Dyckman Farmhouse, a preserved home from 1785, tells the story of this concrete jungle’s rural roots. The Cloisters, a branch of the Metropolitan Museum of Art, showcases medieval artworks (including the famous Unicorn Tapestries) in structures from French monasteries and abbeys. Hilly streets and lush parks make northern Manhattan one of the best places for lazy weekend strolls.",
+            "image": "https://www.tripsavvy.com/thmb/x_gShEDZr-X4Hb6WLbV5z8lAifQ=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-924077752-5be0928446e0fb00260550da.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 18,
+        "fields": {
+            "name": "Hell's Kitchen",
+            "description": "When you hear the name Hell’s Kitchen, you instantly wonder what kind of trouble this neighborhood might be cooking up. Don’t worry, though—the biggest hassle you’ll face here is scoring a table at one of the area’s trendy restaurants. While Hell’s Kitchen is just a short walk from famous Broadway theaters, it has its own thriving performing arts scene and is a gay nightlife destination as well.",
+            "image": "https://www.tripsavvy.com/thmb/NSc83MZ1IZApgoB5xXX1EayxUZg=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-526661212-5be0952f46e0fb005129e531.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood", 
+        "pk": 19,
+        "fields": {
+            "name": "Midtown East",
+            "description": "If you like architecture, you’re in for a treat in Midtown East. The neighborhood is a wonderland of Beaux Arts and Art Deco splendor, rooted in renowned structures like Grand Central Terminal and the Chrysler Building. When you’re done gazing at the buildings, it’s time to shop. Midtown East is where you’ll find Bergdorf Goodman, Bloomingdale’s and other famous department stores. ",
+            "image": "https://www.tripsavvy.com/thmb/LqflEuc1YQDz9RQgukj19Xl1Ing=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-860985926-5be0995dc9e77c0051dd25de.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 20,
+        "fields": {
+            "name": "Flatiron District",
+            "description": "The Flatiron District is a foodie’s delight. Named for the landmark iron-shaped building, this neighborhood is home to just about any kind of dining experience you could ask for. Whether you want to feast on Shake Shack burgers in the park, dress up for an epic tasting menu at a Michelin-starred restaurant or carbo-load at Eataly (a 2018 Editors' Choice Awards winner), you definitely want to bring an appetite to the Flatiron. ",
+            "image": "https://www.tripsavvy.com/thmb/TOyeTPjpjCU4Cd1rvLxOCTWUDAM=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Flatiron-5-bc83943d61e14509942dfe6bbf261038.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 21,
+        "fields": {
+            "name": "Union Square",
+            "description": "Vibrant urban life is on full display at Union Square Park. On any given day, you’ll find outdoor vendors hawking second-hand books and incense, chess players contemplating their next move, activists exercising their First Amendment rights and skateboarders shredding on the steps. The serenity of Gramercy Park, just a few blocks north, sure looks appealing after all that action, but you’ll need a key to enter this private space.",
+            "image": "https://www.tripsavvy.com/thmb/Cz-6VMuyMAPd6g5Wg008QZ9M7qQ=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-568849409-5be09bb8c9e77c0051b1241f.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 22,
+        "fields": {
+            "name": "Greenwich Village",
+            "description": "Greenwich Village is arguably the most romantic neighborhood in the city. Between its history as a bohemian enclave, its maze of tree-shaded streets and its distinctive small-town vibe, this neighborhood charms visitors and locals alike. Even though many of the artists and writers who once called this neighborhood home have long been priced out, their creative spirit lives on in the comedy clubs, jazz clubs, theaters and independent cinemas around the Village.",
+            "image": "https://www.tripsavvy.com/thmb/Ou7Yi8MOHONVpniD5e3FR-vZJpE=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/West.Village-8-298daa0e7334426a8056603acf954b84.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 23,
+        "fields": {
+            "name": "Lower East Side",
+            "description": "The coolest part about the Lower East Side isn’t its Instagram-worthy restaurants, trendy boutiques or avant-garde art—it’s the neighborhood’s deep sense of history as the place where hundreds of thousands of immigrants settled during the late 19th and early 20th centuries. See how they lived by taking a tour of the Tenement Museum and taste some of their traditional foods at the humble delis and bakeries that have been here for decades. ",
+            "image": "https://www.tripsavvy.com/thmb/sCDK3ChJuf8VF2t9voOswTSMBTw=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-640006562-5be0a17146e0fb00512c26c4.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 24,
+        "fields": {
+            "name": "Little Italy",
+            "description": "You want a big bowl of spaghetti and meatballs? Or a cannoli and an espresso? How about a scoop of gelato? As you might have guessed, this is where to go when you’re craving Italian cuisine. The best time to visit Little Italy is in September. That’s when the neighborhood hosts its annual Feast of San Gennaro, a highly popular 11-day street fair.",
+            "image": "https://www.tripsavvy.com/thmb/zTs2632uHMr3VmEnUaECca6yxsQ=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-947418296-5be0a32cc9e77c0051deef86.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 25,
+        "fields": {
+            "name": "SoHo",
+            "description": "SoHo is the place to go when you’re in need of retail therapy. This shopping-focused neighborhood has all your favorite chain stores, sample sales, luxurious boutiques, home goods, tea shops, perfumeries and tons of other great stores. Plus, the fashion influencers snapping photos outside the cast-iron buildings makes for prime people-watching opportunities.",
+            "image": "https://www.tripsavvy.com/thmb/SWy8lDSxk2wMrlKYzH059RXhsw8=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-934277598-5be0a46dc9e77c0051760813.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 26,
+        "fields":  {
+            "name": "Tribeca",
+            "description": "Prepare to be star-struck in Tribeca, where you’re almost bound to spot a celebrity. The chic area with cobblestone streets and ultra-private lofts has become home to countless A-listers, like Robert de Niro, Taylor Swift, Beyoncé and Justin Timberlake, to name a few.",
+            "image": "https://www.tripsavvy.com/thmb/Te1OabfCiizMufTBVYpJS1g5dSg=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-740525901-5be0a55046e0fb0026398afe.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 27,
+        "fields": {
+            "name": "Chinatown",
+            "description": "Home to a diverse community of immigrants not only from China, but all over Asia, Chinatown is where you can get your fix of savory dumplings, spicy noodles and late-night dim sum. When you’re not feasting, you can visit Buddhist temples or bargain for knock-off handbags that can almost pass for the real thing. Or, walk along hip Orchard and Ludlow streets, where boutiques and the trendy Metrograph movie theater have moved in.",
+            "image": "https://www.tripsavvy.com/thmb/dxxUEejXJK1655uvoXdZWYDpdoo=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/20190826_BrakeThroughMedia_A10O8431-280fab719c85490b9e8613dcfe93e978.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 28,
+        "fields": {
+            "name": "Financial District",
+            "description": "Jutting out from lower Manhattan, the Financial District was the birthplace of American capitalism. The ambitious energy of Wall Street and the World Trade Center pumps through the neighborhood throughout the week. It’s also the jumping off point for the Statue of Liberty and Ellis Island.",
+            "image": "https://www.tripsavvy.com/thmb/lTrPdnb_Ym6yx7AyUGd91l2kK6E=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-817648740-5be0a81b46e0fb00512d5868.jpg",
+            "borough": 1
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 29,
+        "fields": {
+            "name": "Astoria",
+            "description": "Since the days of silent films, Astoria has served as an entertainment production hub. Countless movies and TV shows (including Sesame Street) have been shot at Kaufman Astoria Studios. And the Museum of the Moving Image lets movie buffs get up close to famous props, costumes and antique photos from Old Hollywood. Astoria's European immigrant community makes the neighborhood a great destination for a Greek salad or a spanakopita, too.",
+            "image": "https://www.tripsavvy.com/thmb/BbcFKRbtvSJtEFdMv5j7W_ryUDU=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1019000754-5be0a9e0c9e77c005161701b.jpg",
+            "borough": 4
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 30,
+        "fields": {
+            "name": "Long Island City",
+            "description": "Everything’s shiny and new in Long Island City, a former manufacturing hub that’s since been re-developed into a mini Manhattan with views of the skyline that can’t be beat. The thriving arts community revolves around MoMA PS1, one of the oldest contemporary arts institutions in the country.",
+            "image": "https://www.tripsavvy.com/thmb/V9e0KCnvHscKSZ7pH1ahbkrBr4c=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-945259244-5be0acde46e0fb0026bd01ec.jpg",
+            "borough": 4
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 31,
+        "fields": {
+            "name": "Greenpoint",
+            "description": "The coolness of Williamsburg has seeped into Greenpoint, evident in its cocktail bars and sleek restaurants. But this neighborhood stays true to its humble roots, with traditional Polish restaurants, old-school butchers and no-frills doughnut shops. It’s got the best of both worlds.",
+            "image": "https://www.tripsavvy.com/thmb/XS8I3pwyMesi36fFNmt-xjxTpbE=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1054118444-5be0adcb46e0fb00260a2a76.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 32,
+        "fields": {
+            "name": "Downtown Brooklyn",
+            "description": "Don’t let Downtown Brooklyn’s initial appearance as a crowded business center form your opinion of this area—the neighborhood also boasts an incredible cultural district. Take in classic drama and Shakespeare at the Theatre for a New Audience or catch live music and performing arts at BRIC House.",
+            "image": "https://www.tripsavvy.com/thmb/FJ6pPZTbZvIwNckAzoqAWkbIQJA=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-726797863-5be1b093c9e77c0026c52f9d.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 33,
+        "fields": {
+            "name": "Bushwick",
+            "description": "If Williamsburg had an edgy younger sibling, it’d be Bushwick. Hypnotic street art has transformed industrial buildings into larger-than-life outdoor galleries, exploding with color. The interiors of those warehouses have also gotten the creative treatment, converting into theaters and dance parties after dark.",
+            "image": "https://www.tripsavvy.com/thmb/7tzslF1YAjZ6LMsSDcq9H3D4YUM=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-5219321581-5be0c3c2c9e77c0051b84854.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 34,
+        "fields": {
+            "name": "Bed-Stuy",
+            "description": "The beautiful Victorian brownstones of Bed-Stuy have helped the neighborhood retain its cozy residential feel, despite an influx of tourists and new residents. It’s anything but boring, though—block parties, bars and some of Brooklyn’s best fare make it worth a visit. ",
+            "image": "https://www.tripsavvy.com/thmb/bhiFZIVDmTl7fS_eVRt8nqJZ5Og=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-889187328-5be0c492c9e77c0051ef8e6b.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 35,
+        "fields": {
+            "name": "Crown Heights",
+            "description": "Crown Heights unites its diverse community around some of the most popular attractions in the borough: the Brooklyn Museum, the Brooklyn Botanic Garden and the Brooklyn Children’s Museum. The neighborhood turns into a huge party during the West Indian American Day Parade every September.",
+            "image": "https://www.tripsavvy.com/thmb/4bMfIWP1Wp2ISo0Gu_o_KWzzbuQ=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-661117855-5be0c51fc9e77c00517bf06e.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood", 
+        "pk": 36,
+        "fields": {
+            "name": "Brooklyn Heights",
+            "description": "No skyscrapers here—just some of the neighborhood's prettiest row houses and quiet streets that offer plenty of photo ops. The picture-perfect vistas continue along the promenade, where you’ll get panoramas of lower Manhattan and a glimpse at what makes this peaceful neighborhood so appealing to local families.",
+            "image": "https://www.tripsavvy.com/thmb/v2oj7MUuXhpvXHqKPdH2Wi-AfJA=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-83271932-5be1b153c9e77c005189c1cd.jpg",
+            "borough": 3
+        }
+    }, 
+    {
+        "model": "main_app.neighborhood",
+        "pk": 37,
+        "fields": {
+            "name": "DUMBO",
+            "description": "The area Down Under the Manhattan Bridge Overpass (DUMBO) boasts endless things to do. You’ll find outdoor art shows on the cobblestone streets, one-of-a-kind boutiques, indie bookstores and a robust calendar of performing arts events at St. Ann’s Warehouse. Plus, the views of Manhattan might make your jaw drop.",
+            "image": "https://www.tripsavvy.com/thmb/_rug0LQHlz72GDCwXKQbD1mXAMs=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Mazzola_Deanna-1WEB-ee22f321e0634222ada78852c8a2abe9.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 38,
+        "fields": {
+            "name": "Park Slope",
+            "description": "Life in Park Slope revolves around Prospect Park, the large expanse of lush greenery with meandering walkways and top-notch bike paths. Summertime brings live outdoor performances from world-renowned orchestras to the park, while all-season farmer’s markets and a carousel make this a year-round escape.",
+            "image": "https://www.tripsavvy.com/thmb/gZ98GQeqPZD1ybRG7lj_Ls8t09c=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-5204832982-5be1beae46e0fb0026340ca3.jpg",
+            "borough": 3
+        }
+    },
+    {
+        "model": "main_app.neighborhood",
+        "pk": 39,
+        "fields": {
+            "name" : "Red Hook",
+            "description": "With picturesque iews of the Statue of Liberty, casual bars and restaurants and cobblestone streets, this laid-back waterfront locale makes for a great place to hang out and unwind on the weekends. And if you happen to need some new furniture, NYC'c IKEA is right there.",
+            "image": "https://www.tripsavvy.com/thmb/-X-T8JzEq6gS4SbvSHeJNhrI5C4=/375x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-494318119-5be1c17e4cedfd0026c60ee9.jpg",
+            "borough": 3
+        }
+    },
+    {
         "model": "main_app.point_of_interest",
         "pk": 1,
         "fields": {
@@ -268,7 +519,7 @@
             "description": "The Broadway Theatre is one of a select few legitimate theaters that was originally built as a movie house. Its seating capacity of 1,765 made it ideal for the changeover to musical theater in 1930. It showed movies for a brief period again in the 1950s but has been a legitimate theater ever since.",
             "image": "https://a.cdn-hotels.com/gdcs/production59/d221/51c89c60-4fa3-4a7f-ace0-64e47c2c60ee.jpg",
             "price": 4,
-            "neighborhood": 1 
+            "neighborhood": 6
         }
     },
     {
@@ -320,9 +571,6 @@
             "description": "The world's most magnificent Art Deco skyscraper, it's a living piece of New York history and an instantly recognizable symbol of city culture today. Standing at 102 stories and 1,454 feet at its pinnacle, the Empire State Building was the tallest building in the world for nearly 40 years after its completion.",
             "price": 2,
             "image": "https://marvel-b1-cdn.bc0a.com/f00000000179470/www.esbnyc.com/sites/default/files/styles/on_3_cols/public/2020-02/86_2.jpg?itok=z2dsQf8n",
-            "neighborhood": 1
+            "neighborhood": 2
         }
-    }
-
-    
-    ]
+    }]
