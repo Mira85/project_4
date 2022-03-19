@@ -57,6 +57,7 @@
 
 <h3>User Reviews</h3>
 <br>
+<<<<<<< HEAD
 {% if user_review %}
 <form action="{% url 'update_review' point_of_interest.id user_review.first.id %}" method="POST">
     {% csrf_token %}
@@ -72,17 +73,34 @@
         <input type="submit" value="delete review" class="btn btn-primary review_btn">
     </form>
     <hr />
+=======
+<div>
+    {% if user.id %}
+    <div>
+        {% if user_review %}
+        <form action="{% url 'update_review' point_of_interest.id user_review.first.id %}" method="POST">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <input type="submit" value="update review" class="btn btn-primary review_btn">
+        </form>
+        <form action="{% url 'delete_review' point_of_interest.id user_review.first.id  %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="delete review" class="btn btn-primary review_btn">
+        </form>
+        {% else %}
+        <form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <input type="submit" value="Add review" class="btn btn-primary">
+        </form>
+        {% endif %}
+    </div>
+    {% endif %}
+>>>>>>> master
 </div>
-{% else %}
-<form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
-    {% csrf_token %}
-    {{ review_form.as_p }}
-    <input type="submit" value="Add review" class="btn btn-primary">
-</form>
-{% endif %}
 
 
-{% for review in other_review  %}
+{% for review in all_reviews  %}
 <hr />
 <p>Rating: {{review.ratings}}</p>
 <p>{{review.description}}</p>
