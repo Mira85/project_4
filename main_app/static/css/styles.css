@@ -5,7 +5,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: gray;
+    background-color: rgb(158, 158, 158);
 }
 
 .nav-item {
@@ -21,8 +21,8 @@ ul {
 }
 
 .nav-link:hover {
-    background-color: lightgrey;
-    color: grey;
+    background-color: rgb(61, 138, 214);
+    color: rgb(255, 140, 0);
 }
 
 /* Navbar styling END */
@@ -190,10 +190,28 @@ ul {
 
 /* Borough Detail Cards styling END */
 
+/***********************************/
+
+/* Login styling START */
+
+.login-container {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 1rem;
+    background-color: whitesmoke;
+    position: relative;
+    height: 40vh;
+}
+
+
+/* Login styling END */
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background: linear-gradient(90deg, dodgerblue, white, darkorange);
 }
 
 main {
