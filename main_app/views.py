@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .forms import ReviewForm
+from .forms import ReviewForm, ItineraryForm
 from decouple import config
 import requests
 # Create your views here.
@@ -183,3 +183,12 @@ def delete_review(request, point_of_interest_id, review_id):
     if request.method == "POST":
         data.delete()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
+
+def user_list(request, user_id):
+    form = ReviewForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            new_itinerary = form.save(commit = False)
+            new_itinerary.user_id = user_id
+            new_itinerary.save()
+        return render(request, 'user/user_list.html')

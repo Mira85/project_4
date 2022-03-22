@@ -1,5 +1,7 @@
+from multiprocessing.dummy import Array
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
 
 class Borough(models.Model):
@@ -33,4 +35,10 @@ class Review(models.Model):
        return f'{self.point_of_interest_id} has {self.ratings} rating'
 
 
+class Itinerary(models.Model):
+    points_of_interest = ArrayField(models.CharField(max_length=220))
+    visited = ArrayField(models.CharField(max_length=220))
+    not_visited = ArrayField(models.CharField(max_length=220))
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models. CharField(max_length=100)
 
