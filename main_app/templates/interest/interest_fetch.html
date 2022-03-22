@@ -56,31 +56,57 @@
 <br>
 
 <h3>User Reviews</h3>
-<br>
-<div>
-    {% if user.id %}
-    <div>
-        {% if user_review %}
-        <form action="{% url 'update_review' point_of_interest.id user_review.first.id %}" method="POST">
-            {% csrf_token %}
-            {{ review_form.as_p }}
-            <input type="submit" value="update review" class="btn btn-primary review_btn">
-        </form>
-        <form action="{% url 'delete_review' point_of_interest.id user_review.first.id  %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="delete review" class="btn btn-primary review_btn">
-        </form>
-        {% else %}
-        <form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
-            {% csrf_token %}
-            {{ review_form.as_p }}
-            <input type="submit" value="Add review" class="btn btn-primary">
-        </form>
-        {% endif %}
-    </div>
-    {% endif %}
-</div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Share experience
+</button>
+
+<!-- Modal -->
+<div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal_form">
+                {% if user.id %}
+                <div class="col-10 modal_box">
+                    {% if user_review %}
+                    <div class="form-group ">
+                        <form class="modal_area" action="{% url 'update_review' point_of_interest.id user_review.first.id %}"
+                            method="POST">
+                            {% csrf_token %}
+                            {{ review_form.as_p }}
+                            <input type="submit" value="Update review" class="btn btn-primary review_btn">
+                        </form>
+                    </div>
+                    <div class="delete_review">
+                        <form action="{% url 'delete_review' point_of_interest.id user_review.first.id  %}"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Click Me" class="btn btn-primary review_btn">
+                            <span> to delete the review </span>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group">
+                    <form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
+                        {% csrf_token %}
+                        {{ review_form.as_p }}
+                        <input type="submit" value="Add review" class="btn btn-primary">
+                    </form>
+                </div>
+                {% endif %}
+           
+            {% else %}
+            <p>Please login to write or update a review</p>
+            {% endif %}
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
 
 {% for review in all_reviews  %}
 <hr />
