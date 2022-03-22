@@ -36,9 +36,7 @@ class Review(models.Model):
 
 
 class Itinerary(models.Model):
-    points_of_interest = ArrayField(models.CharField(max_length=220))
-    visited = ArrayField(models.CharField(max_length=220))
-    not_visited = ArrayField(models.CharField(max_length=220))
+    points_of_interest = ArrayField(models.CharField(max_length=220), default=list, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models. CharField(max_length=100)
 

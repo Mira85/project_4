@@ -19,13 +19,10 @@
           <div class="nav-wrapper">
             <ul class="nav">
               <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="/boroughs">Boroughs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/neighborhoods">Neighborhoods</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/points_of_interest">Interests</a>
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -103,12 +103,12 @@ def point_of_interest_index(request):
     return render(request, 'interest/interest_index.html')
 
 def point_of_interest_detail(request, point_of_interest_id):
-    reviews = Review.objects.all()
     fetch_detail_url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={point_of_interest_id}&key={API_KEY}"
     payload={}
     headers = {}
     response = requests.get(fetch_detail_url, headers=headers, data=payload)
     point_of_interest = response.json()['result']
+    itineraries = Itinerary.objects.filter(user__exact=request.user.id)
     photo_url = f"{PHOTO_BASE_URL}{point_of_interest['photos'][0]['photo_reference']}&key={API_KEY}"
     place_details = {
         'address': point_of_interest['formatted_address'],
@@ -122,7 +122,7 @@ def point_of_interest_detail(request, point_of_interest_id):
     }
 
     review_form = ReviewForm()
-    
+    itinerary_form = ItineraryForm()
 
     all_reviews = Review.objects.filter(point_of_interest_id = point_of_interest_id )
     user_review = all_reviews.filter(user__exact=request.user.id)
@@ -136,7 +136,9 @@ def point_of_interest_detail(request, point_of_interest_id):
         'review_form': review_form,
         'user_review': user_review,
         'other_review': other_review,
-        'all_reviews': all_reviews
+        'all_reviews': all_reviews,
+        'itinerary_form': itinerary_form,
+        'itineraries': itineraries
     })
 
 
@@ -184,10 +186,26 @@ def delete_review(request, point_of_interest_id, review_id):
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
 
 def user_list(request, user_id):
-    form = ReviewForm(request.POST)
+    itinerary_form = ItineraryForm()
+    user = User.objects.get(id=user_id)
+    itineraries = Itinerary.objects.filter(user=user_id)
+    return render(request, 'user/user_list.html', {
+        'itinerary_form': itinerary_form,
+        'user': user,
+        'itineraries': itineraries
+    })
+
+def add_itinerary(request, user_id):
+    form = ItineraryForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
             new_itinerary = form.save(commit = False)
             new_itinerary.user_id = user_id
             new_itinerary.save()
-        return render(request, 'user/user_list.html')
+        return redirect('user_list', user_id = user_id)
+
+def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    itinerary.points_of_interest.append({point_of_interest_name: point_of_interest_id})
+    itinerary.save()
+    return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)

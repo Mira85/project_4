@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+<h3>Itineraries</h3>
+<ul>
+    
+    {% for itinerary in itineraries  %}
+        <button>{{ itinerary.name }}</button>
+        <form action="{% url 'add_to_itinerary' user.id itinerary.id point_of_interest.id point_of_interest.name %}">
+            <input type="submit" value="Add To Itinerary">
+        </form>
+    {% endfor %}
+</ul>
+
+
 <h1>Name: {{ point_of_interest.name }}</h1>
 <h6>Phone Number: {{ point_of_interest.phone_number }}</h6>
 <h6>

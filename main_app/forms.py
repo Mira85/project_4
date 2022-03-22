@@ -10,7 +10,7 @@ class ReviewForm(forms.ModelForm):
             'ratings' : forms.NumberInput(attrs={'class': 'form-control'}),
             'description' : forms.Textarea(attrs={'class': 'form-control'}),
         }
-        
+
 class ItineraryForm(ModelForm):
     class Meta: 
         model = Itinerary

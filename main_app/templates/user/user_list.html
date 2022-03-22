@@ -1,9 +1,17 @@
 {% extends 'base.html' %} 
 {% block content %}
     <h1>User's List of Iteneraries</h1>
-    <button>Create New Itinerary</button>
-
-    
+    <form action="{% url 'add_itinerary' user.id %}" method="POST">
+        {% csrf_token %} {{ itinerary_form.as_table }}
+        <br>
+        <input type="submit" value="Create Itinerary">
+    </form>
+    <ul>
+        {% for itinerary in itineraries %}
+        <li>{{ itinerary.name }}</li>
+            {{itinerary.points_of_interest}}
+        {% endfor %}
+    </ul>
     <script>
 
     </script>
