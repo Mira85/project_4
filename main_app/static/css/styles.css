@@ -1,5 +1,4 @@
 /* Navbar styling START */
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -231,3 +230,28 @@ footer {
     margin-top: 2%;
 }
 
+/* modal form styling */
+
+.modal_area{
+    display:flex;
+    flex-direction: column;
+}
+
+.modal_box{
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.modal_form{
+    display: flex;
+    justify-content: center;
+    
+}
+.delete_review{
+    margin-top: 25px;
+    margin-left: 18px;
+    width: 100%;
+}
