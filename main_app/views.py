@@ -122,7 +122,6 @@ def point_of_interest_detail(request, point_of_interest_id):
     
 
     all_reviews = Review.objects.filter(point_of_interest_id = point_of_interest_id )
-    print(type(all_reviews))
     user_review = all_reviews.filter(user__exact=request.user.id)
     other_review = all_reviews.exclude(user__exact=request.user.id)
     review_form=ReviewForm()
