@@ -206,6 +206,7 @@ def add_itinerary(request, user_id):
 
 def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name):
     itinerary = Itinerary.objects.get(id=itinerary_id)
+    itinerary.points_of_interest.append({point_of_interest_name : point_of_interest_id})
     itinerary.points_of_interest_id.append(point_of_interest_id)
     itinerary.points_of_interest_name.append(point_of_interest_name)
     itinerary.save()
