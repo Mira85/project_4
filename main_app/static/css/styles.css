@@ -373,3 +373,12 @@ footer {
     margin-left: 18px;
     width: 100%;
 }
+
+
+.view_more_btn{
+    background-color: red;
+}
+
+.hidden{
+    display: none;
+}

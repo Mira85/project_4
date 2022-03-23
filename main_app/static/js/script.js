@@ -131,3 +131,4 @@
 $('.collapse').collapse({
     toggle: true
 })
+

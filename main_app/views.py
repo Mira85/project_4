@@ -104,11 +104,56 @@ def neighborhood_detail(request, neighborhood_id):
         tourist_range = tourist_attractions[0:3]
         tourist_rest = tourist_attractions[3:]
         
+        restaurants = []
+        for place in place_list: 
+            if 'restaurant' in place['interest_category']:
+                restaurants.append(place)
+        restaurant_range = restaurants[0:3]
+        restaurant_rest = restaurants[3:]
+        
+        places_to_stay = []
+        for place in place_list: 
+            if 'lodging' in place['interest_category']:
+                places_to_stay.append(place)
+        places_to_stay_range = places_to_stay[0:3]
+        places_to_stay_rest = places_to_stay[3:]
+        
+        clubs = []
+        for place in place_list: 
+            if 'night_club' in place['interest_category']:
+                clubs.append(place)
+        clubs_range = clubs[0:3]
+        clubs_rest = clubs[3:]
+        
+        parks = []
+        for place in place_list: 
+            if 'park' in place['interest_category']:
+                parks.append(place)
+        parks_range = parks[0:3]
+        parks_rest = parks[3:]
+        
+        shops = []
+        for place in place_list: 
+            if 'clothing_store' in place['interest_category']:
+                shops.append(place)
+        shops_range = shops[0:3]
+        shops_rest = shops[3:]
+        
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
         'points_of_interest': place_list,
         'tourist_range': tourist_range,
-        'tourist_rest' : tourist_rest
+        'tourist_rest' : tourist_rest,
+        'restaurant_range': restaurant_range,
+        'restaurant_rest' : restaurant_range,
+        'places_to_stay_range': places_to_stay_range,
+        'places_to_stay_rest': places_to_stay_rest,
+        'clubs_range' : clubs_range,
+        'clubs_rest' : clubs_rest,
+        'parks_range' : parks_range,
+        'parks_rest' : parks_rest,
+        'shops_range' : shops_range,
+        'shops_rest' : shops_rest
     } )
 
 def point_of_interest_index(request):
