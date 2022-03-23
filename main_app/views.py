@@ -195,7 +195,7 @@ def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
         url_search_term = urllib.parse.quote(" " + searched)
-        searched_url = f"{NEIGHBORHOOD_BASE_URL}newyorkcity{url_search_term}&type=tourist_attraction&key={API_KEY}"
+        searched_url = f"{NEIGHBORHOOD_BASE_URL}newyorkcity{url_search_term}&key={API_KEY}"
         response = requests.get(searched_url, headers=headers, data=payload)
         place_id = response.json()['results'][0]['place_id']
         return redirect('point_of_interest_detail', point_of_interest_id = place_id)
