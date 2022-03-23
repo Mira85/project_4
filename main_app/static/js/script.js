@@ -127,3 +127,7 @@
     initCarousel();
 
 } (document));
+
+$('.collapse').collapse({
+    toggle: true
+})

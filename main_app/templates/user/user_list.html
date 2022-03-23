@@ -1,18 +1,42 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-
     <h1>User's List of Iteneraries</h1>
+
+    
     <form action="{% url 'add_itinerary' user.id %}" method="POST">
         {% csrf_token %} {{ itinerary_form.as_table }}
         <br>
         <input type="submit" value="Create Itinerary">
     </form>
-    <ul>
-        {% for itinerary in itineraries %}
-        <li>{{ itinerary.name }}</li>
-            {{itinerary.points_of_interest}}
+    <div id="accordion">
+        
+        {% for itinerary in itineraries  %}
+            <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse{{itinerary.name}}" aria-expanded="true" aria-controls="collapse{{ itinerary.name }}">
+                    {{ itinerary.name }}
+                </button>
+                </h5>
+            </div>
+            <div id="collapse{{itinerary.name}}" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                <div class="card-body">
+                <ul>
+                    
+                    {% for name in itinerary.points_of_interest_name  %}
+                        <li>{{ name }}</li>
+                    {% endfor %}
+                        
+                </ul>
+                </div>
+            </div>
+            </div>
+            
         {% endfor %}
-    </ul>
+            
+        
+      </div>
+
 {% endblock content %}
     
