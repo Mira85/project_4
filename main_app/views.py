@@ -192,6 +192,7 @@ def delete_review(request, point_of_interest_id, review_id):
         data.delete()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
 
+@login_required
 def user_list(request, user_id):
     itinerary_form = ItineraryForm()
     user = User.objects.get(id=user_id)
@@ -202,6 +203,7 @@ def user_list(request, user_id):
         'itineraries': itineraries
     })
 
+@login_required
 def add_itinerary(request, user_id):
     form = ItineraryForm(request.POST)
     if request.method == "POST":
@@ -211,13 +213,39 @@ def add_itinerary(request, user_id):
             new_itinerary.save()
         return redirect('user_list', user_id = user_id)
 
-def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name):
+@login_required
+def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name, ):
     itinerary = Itinerary.objects.get(id=itinerary_id)
-    itinerary.points_of_interest.append({point_of_interest_name : point_of_interest_id})
+    point_of_interest = f"{point_of_interest_name} {point_of_interest_id}"
     itinerary.points_of_interest_id.append(point_of_interest_id)
     itinerary.points_of_interest_name.append(point_of_interest_name)
+    itinerary.points_of_interest.append(point_of_interest)
     itinerary.save()
     return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
+
+@login_required
+def delete_from_itinerary(request, user_id, itinerary_id,point_of_interest, name, id):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    if request.method == "POST":
+        for interest in itinerary.points_of_interest:
+            if interest == point_of_interest:
+                interest.delete()
+        for interest_name in itinerary.points_of_interest_name:
+            if interest_name == name:
+                interest_name.delete()
+        for interest_id in itinerary.points_of_interest_id:
+            if interest_id == id:
+                interest_id.delete()
+
+        return redirect('user_list', user_id)
+
+
+@login_required
+def delete_itinerary(request, user_id, itinerary_id ):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    if request.method == "POST":
+        itinerary.delete()
+        return redirect('user_list', user_id)
 
 def search(request):
     payload={}
