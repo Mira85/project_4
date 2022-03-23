@@ -1,97 +1,100 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="title">{{ point_of_interest.name }}</h1>
-    <div class="interest-fetch-card">
-        <img src="{{ point_of_interest.photo }}" alt="">
-        <h6>{{ point_of_interest.address }}</h6>
-        <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
-        <h6>ID: {{ point_of_interest.id }}</h6>
-        <h6>Rating: {{ point_of_interest.rating }}</h6>
-        <h3>Reviews:</h3>
-        <h5>
-            {% if reviews in point_of_interest %}
-            {% for review in point_of_interest.reviews  %}
-            <h6>***********************************</h6>
-        </h5>
-        <br>
-        <div>
-            Name: {{ review.author_name }}
-            <br>
-            Rating: {{ review.rating }}
-            <br>
-            Review: {{ review.text}}
-            <br>
-            When: {{ review.relative_time_description }}
-        </div>
-        <br>
-        {% endfor %}
-        {% endif %}
-        <h5>Description</h5>
-        <h6>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis excepturi quae quos, totam reiciendis
-            nulla mollitia repellat voluptas placeat? Quae eveniet amet et voluptatum dolor nam nostrum earum quasi.
-            Provident magni voluptatibus aperiam, in ipsam a veritatis cumque eius id sunt ex veniam rerum! Enim, suscipit
-            eveniet animi magnam nam veritatis voluptates in porro commodi temporibus, ipsam vitae tempore.
-            Voluptatum omnis vitae beatae voluptate in cum nobis, nulla soluta. Excepturi natus rerum corporis. Ullam fugiat
-            perspiciatis voluptates fuga consequuntur omnis nobis, culpa tempora alias magnam amet optio eum veritatis.
-            Quibusdam voluptatum eius illum officia quae. Dolorum quod maiores perspiciatis magnam ratione sint earum ullam aut
-            laboriosam nesciunt, consectetur eum impedit cum unde id aliquid corrupti fugit repellat illum iure?
-        </h6>
-    </div>
-    </b>
+<h1 class="title">{{ point_of_interest.name }}</h1>
+<div class="interest-fetch-card">
+    <img src="{{ point_of_interest.photo }}" alt="">
+    <h6>{{ point_of_interest.address }}</h6>
+    <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
+    <h6>ID: {{ point_of_interest.id }}</h6>
+    <h6>Rating: {{ point_of_interest.rating }}</h6>
+    <h3>Reviews:</h3>
+    <h5>
+        {% if reviews in point_of_interest %}
+        {% for review in point_of_interest.reviews  %}
+        <h6>***********************************</h6>
+    </h5>
     <br>
-    <br>
-
-    <h3>User Reviews</h3>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Share experience
-    </button>
-
-    <!-- Modal -->
     <div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content modal_form">
-                    {% if user.id %}
-                    <div class="col-10 modal_box">
-                        {% if user_review %}
-                        <div class="form-group ">
-                            <form class="modal_area" action="{% url 'update_review' point_of_interest.id user_review.first.id %}"
-                                method="POST">
-                                {% csrf_token %}
-                                {{ review_form.as_p }}
-                                <input type="submit" value="Update review" class="btn btn-primary review_btn">
-                            </form>
-                        </div>
-                        <div class="delete_review">
-                            <form action="{% url 'delete_review' point_of_interest.id user_review.first.id  %}"
-                                method="POST">
-                                {% csrf_token %}
-                                <input type="submit" value="Click Me" class="btn btn-primary review_btn">
-                                <span> to delete the review </span>
-                            </form>
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="form-group">
-                        <form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
+        Name: {{ review.author_name }}
+        <br>
+        Rating: {{ review.rating }}
+        <br>
+        Review: {{ review.text}}
+        <br>
+        When: {{ review.relative_time_description }}
+    </div>
+    <br>
+    {% endfor %}
+    {% endif %}
+    <h5>Description</h5>
+    <h6>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis excepturi quae quos, totam reiciendis
+        nulla mollitia repellat voluptas placeat? Quae eveniet amet et voluptatum dolor nam nostrum earum quasi.
+        Provident magni voluptatibus aperiam, in ipsam a veritatis cumque eius id sunt ex veniam rerum! Enim, suscipit
+        eveniet animi magnam nam veritatis voluptates in porro commodi temporibus, ipsam vitae tempore.
+        Voluptatum omnis vitae beatae voluptate in cum nobis, nulla soluta. Excepturi natus rerum corporis. Ullam fugiat
+        perspiciatis voluptates fuga consequuntur omnis nobis, culpa tempora alias magnam amet optio eum veritatis.
+        Quibusdam voluptatum eius illum officia quae. Dolorum quod maiores perspiciatis magnam ratione sint earum ullam
+        aut
+        laboriosam nesciunt, consectetur eum impedit cum unde id aliquid corrupti fugit repellat illum iure?
+    </h6>
+</div>
+</b>
+<br>
+<br>
+
+<h3>User Reviews</h3>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Share experience
+</button>
+
+<!-- Modal -->
+<div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal_form">
+                {% if user.id %}
+                <div class="col-10 modal_box">
+                    {% if user_review %}
+                    <div class="form-group ">
+                        <form class="modal_area"
+                            action="{% url 'update_review' point_of_interest.id user_review.first.id %}" method="POST">
                             {% csrf_token %}
                             {{ review_form.as_p }}
-                            <input type="submit" value="Add review" class="btn btn-primary">
+                            <input type="submit" value="Update review" class="btn btn-primary review_btn">
                         </form>
                     </div>
-                    {% endif %}
-            
+                    <div class="delete_review">
+                        <form action="{% url 'delete_review' point_of_interest.id user_review.first.id  %}"
+                            method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Click Me" class="btn btn-primary review_btn">
+                            <span> to delete the review </span>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <div class="form-group">
+                    <form action="{% url 'add_review' point_of_interest.id user.id %}" method="POST">
+                        {% csrf_token %}
+                        {{ review_form.as_p }}
+                        <input type="submit" value="Add review" class="btn btn-primary">
+                    </form>
+                </div>
+                {% endif %}
+
                 {% else %}
                 <p>Please login to write or update a review</p>
                 {% endif %}
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 {% for review in all_reviews  %}
 <hr />

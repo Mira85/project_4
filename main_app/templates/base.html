@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,13 +25,16 @@
       <div class="nav-wrapper">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/boroughs">Boroughs</a>
+            <a class="nav-link" href="{% url 'home' %}">DestinationNYC</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/neighborhoods">Neighborhoods</a>
+            <a class="nav-link" href="{% url 'borough_index' %}">Boroughs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'search' %}">Search</a>
+            <a class="nav-link" href="{% url 'neighborhood_index' %}">Neighborhoods</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'point_of_interest_index' %}">Interests</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
@@ -45,6 +49,11 @@
           </li>
           {% endif %}
         </ul>
+          <form method="POST" action="{% url 'search' %}" class="nav-item" >
+            {% csrf_token%}
+            <input class="input" id="searchTxt" type="text" name="searched" placeholder="Search tourist attraction">
+            <button class="button" id="searchBtn">Search</button>
+          </form>
       </div>
     </nav>
   </header>

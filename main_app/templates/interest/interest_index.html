@@ -1,20 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<div class="searchContainer">
-    <div class="box showBox">
-        <div class="searchHdr"><b>Where do you want to go ?</b></div>
-        <div class="searchArea">
-            <form method="POST" action="{% url 'search' %}">
-                {% csrf_token%}
-            <input class="input" id="searchTxt" type="text" name="searched">
-            <button class="button" id="searchBtn">Search</button>
-        </form>
-        </div>
-    </div>
-    <section id="searchSectn">
-
-    </section>
-</div>
+<h1 class="title">All Points Of Interest</h1>
 
 {% endblock %}    
