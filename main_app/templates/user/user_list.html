@@ -47,6 +47,7 @@
                 <div class="card-body">
                 <ul>
                     {% for point_of_interest in itinerary.points_of_interest %}
+                    {{point_of_interest}}
                         {% for name in itinerary.points_of_interest_name %}
                             {% for id in itinerary.points_of_interest_id  %}    
                                 {% if id in point_of_interest %}
