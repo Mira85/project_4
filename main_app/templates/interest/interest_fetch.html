@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<<<<<<< HEAD
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal">
     Add to Itinerary
 </button>
@@ -48,24 +47,9 @@
             {% for review in point_of_interest.reviews  %}
             <h6>***********************************</h6>
         </h5>
-=======
-<h1 class="title">{{ point_of_interest.name }}</h1>
-<div class="interest-fetch-card">
-    <img src="{{ point_of_interest.photo }}" alt="">
-    <h6>{{ point_of_interest.address }}</h6>
-    <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
-    <h6>ID: {{ point_of_interest.id }}</h6>
-    <h6>Rating: {{ point_of_interest.rating }}</h6>
-    <h3>Reviews:</h3>
-    <h5>
-        {% if reviews in point_of_interest %}
-        {% for review in point_of_interest.reviews  %}
-        <h6>***********************************</h6>
-    </h5>
     <br>
     <div>
         Name: {{ review.author_name }}
->>>>>>> master
         <br>
         Rating: {{ review.rating }}
         <br>
