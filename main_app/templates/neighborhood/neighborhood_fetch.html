@@ -7,10 +7,18 @@
             <h3>Top Attractions</h3>
             <hr>
             <div class="neighborhood-fetch-cards-container">
+<<<<<<< HEAD
                 {% for point_of_interest in tourist_range %}
                 <div  class="interests">
                     <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
                         <img src="{{ point_of_interest.photo }}" alt="">
+=======
+                {% for point_of_interest in points_of_interest %}
+                {% if 'tourist_attraction' in point_of_interest.interest_category %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
+>>>>>>> master
                         <br>
                         {{ point_of_interest.name }}
                     </a>
