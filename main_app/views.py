@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .forms import ReviewForm
+from .forms import ReviewForm, ItineraryForm
 from decouple import config
 import requests
 import urllib.parse
@@ -114,6 +114,7 @@ def point_of_interest_detail(request, point_of_interest_id):
     headers = {}
     response = requests.get(fetch_detail_url, headers=headers, data=payload)
     point_of_interest = response.json()['result']
+    itineraries = Itinerary.objects.filter(user__exact=request.user.id)
     photo_url = f"{PHOTO_BASE_URL}{point_of_interest['photos'][0]['photo_reference']}&key={API_KEY}"
     place_details = {
         'address': point_of_interest['formatted_address'],
@@ -125,7 +126,9 @@ def point_of_interest_detail(request, point_of_interest_id):
         # 'rating': point_of_interest['rating'],
         # 'reviews': point_of_interest['reviews'],   
     }
-    
+
+    review_form = ReviewForm()
+    itinerary_form = ItineraryForm()
 
     all_reviews = Review.objects.filter(point_of_interest_id = point_of_interest_id )
     user_review = all_reviews.filter(user__exact=request.user.id)
@@ -139,7 +142,9 @@ def point_of_interest_detail(request, point_of_interest_id):
         'review_form': review_form,
         'user_review': user_review,
         'other_review': other_review,
-        'all_reviews': all_reviews
+        'all_reviews': all_reviews,
+        'itinerary_form': itinerary_form,
+        'itineraries': itineraries
     })
 
 
@@ -160,7 +165,6 @@ def signup(request):
 @login_required
 def add_review(request, point_of_interest_id, user_id):
     form = ReviewForm(request.POST)
-
     if request.method == "POST":
         if form.is_valid():
             new_review = form.save(commit = False)
@@ -188,6 +192,32 @@ def delete_review(request, point_of_interest_id, review_id):
         data.delete()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
 
+def user_list(request, user_id):
+    itinerary_form = ItineraryForm()
+    user = User.objects.get(id=user_id)
+    itineraries = Itinerary.objects.filter(user=user_id)
+    return render(request, 'user/user_list.html', {
+        'itinerary_form': itinerary_form,
+        'user': user,
+        'itineraries': itineraries
+    })
+
+def add_itinerary(request, user_id):
+    form = ItineraryForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            new_itinerary = form.save(commit = False)
+            new_itinerary.user_id = user_id
+            new_itinerary.save()
+        return redirect('user_list', user_id = user_id)
+
+def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    itinerary.points_of_interest.append({point_of_interest_name : point_of_interest_id})
+    itinerary.points_of_interest_id.append(point_of_interest_id)
+    itinerary.points_of_interest_name.append(point_of_interest_name)
+    itinerary.save()
+    return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
 
 def search(request):
     payload={}
@@ -195,7 +225,7 @@ def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
         url_search_term = urllib.parse.quote(" " + searched)
-        searched_url = f"{NEIGHBORHOOD_BASE_URL}newyorkcity{url_search_term}&type=tourist_attraction&key={API_KEY}"
+        searched_url = f"{NEIGHBORHOOD_BASE_URL}newyorkcity{url_search_term}&key={API_KEY}"
         response = requests.get(searched_url, headers=headers, data=payload)
         place_id = response.json()['results'][0]['place_id']
         return redirect('point_of_interest_detail', point_of_interest_id = place_id)

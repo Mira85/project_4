@@ -1,18 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="title">{{ point_of_interest.name }}</h1>
-<div class="interest-fetch-card">
-    <img src="{{ point_of_interest.photo }}" alt="">
-    <h6>{{ point_of_interest.address }}</h6>
-    <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
-    <h6>ID: {{ point_of_interest.id }}</h6>
-    <h6>Rating: {{ point_of_interest.rating }}</h6>
-    <h3>Reviews:</h3>
-    <h5>
-        {% if reviews in point_of_interest %}
-        {% for review in point_of_interest.reviews  %}
-        <h6>***********************************</h6>
-    </h5>
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal">
+    Add to Itinerary
+</button>
+
+<div>
+    <div class="modal fade" id="itineraryModal" tabindex="-1" aria-labelledby="itineraryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal_form">
+                {% if user.id %}
+                <div class="col-10 modal_box">
+                <div class="form-group">
+                    <ul id="add_itinerary_modal">
+                        {% for itinerary in itineraries  %}
+                                <form action="{% url 'add_to_itinerary' user.id itinerary.id point_of_interest.id point_of_interest.name %}">
+                                    <li>
+                                        {{itinerary.name}}
+                                        <input class='itinerary-btn btn 'type="submit" value="&#43;">
+                                    </li>
+                                </form>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <h1 class="title">{{ point_of_interest.name }}</h1>
+    <div class="interest-fetch-card">
+        <img src="{{ point_of_interest.photo }}" alt="">
+        <h6>{{ point_of_interest.address }}</h6>
+        <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
+        <h6>ID: {{ point_of_interest.id }}</h6>
+        <h6>Rating: {{ point_of_interest.rating }}</h6>
+        <h3>Reviews:</h3>
+        <h5>
+            {% if reviews in point_of_interest %}
+            {% for review in point_of_interest.reviews  %}
+            <h6>***********************************</h6>
+        </h5>
     <br>
     <div>
         Name: {{ review.author_name }}

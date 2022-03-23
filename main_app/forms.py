@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Review
+from .models import Review, Itinerary
 from django import forms 
 
 class ReviewForm(forms.ModelForm):
@@ -10,4 +10,8 @@ class ReviewForm(forms.ModelForm):
             'ratings' : forms.NumberInput(attrs={'class': 'form-control'}),
             'description' : forms.Textarea(attrs={'class': 'form-control'}),
         }
-       
+
+class ItineraryForm(ModelForm):
+    class Meta: 
+        model = Itinerary
+        fields = ['name']
