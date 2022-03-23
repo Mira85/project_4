@@ -98,7 +98,7 @@
                 {% endif %}
            
             {% else %}
-            <p>Please login to write or update a review</p>
+            <p>Please login to write or update a review</p> 
             {% endif %}
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -110,6 +110,7 @@
 
 {% for review in all_reviews  %}
 <hr />
+<p>{{review.user}}</p>
 <p>Rating: {{review.ratings}}</p>
 <p>{{review.description}}</p>
 <hr />

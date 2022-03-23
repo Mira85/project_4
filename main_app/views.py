@@ -5,6 +5,9 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import ReviewForm
 from decouple import config
 import requests
+import urllib.parse
+
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 API_KEY = config('API_KEY')
@@ -94,6 +97,8 @@ def neighborhood_detail(request, neighborhood_id):
                 }
                 place_list.append(place)
 
+    
+
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
         'points_of_interest': place_list
@@ -101,6 +106,7 @@ def neighborhood_detail(request, neighborhood_id):
 
 def point_of_interest_index(request):
     return render(request, 'interest/interest_index.html')
+
 
 def point_of_interest_detail(request, point_of_interest_id):
     fetch_detail_url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={point_of_interest_id}&key={API_KEY}"
@@ -151,6 +157,7 @@ def signup(request):
     context = { 'form': form, 'error': error_message }
     return render(request, 'registration/signup.html', context)
 
+@login_required
 def add_review(request, point_of_interest_id, user_id):
     form = ReviewForm(request.POST)
 
@@ -162,7 +169,7 @@ def add_review(request, point_of_interest_id, user_id):
             new_review.save()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
 
-
+@login_required
 def update_review(request, point_of_interest_id, review_id):
     data = Review.objects.get(id=review_id)
    
@@ -173,10 +180,26 @@ def update_review(request, point_of_interest_id, review_id):
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
    
 
-
+@login_required
 def delete_review(request, point_of_interest_id, review_id):
     data = Review.objects.get(id=review_id)
 
     if request.method == "POST":
         data.delete()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
+
+
+def search(request):
+    payload={}
+    headers = {}
+    if request.method == "POST":
+        searched = request.POST['searched']
+        url_search_term = urllib.parse.quote(" " + searched)
+        searched_url = f"{NEIGHBORHOOD_BASE_URL}newyorkcity{url_search_term}&type=tourist_attraction&key={API_KEY}"
+        response = requests.get(searched_url, headers=headers, data=payload)
+        place_id = response.json()['results'][0]['place_id']
+       
+
+        return redirect('point_of_interest_detail', point_of_interest_id = place_id)
+    else:
+         return render(request, 'interest/interest_index.html')
