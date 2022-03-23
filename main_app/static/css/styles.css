@@ -24,6 +24,14 @@ ul {
     color: white;
 }
 
+.search-container {
+    margin-top: 0.8%;
+    margin-left: 1%;
+    overflow: hidden;
+    float: right;
+    clear: both;
+}
+
 /* Navbar styling END */
 
 /***********************************/
@@ -49,6 +57,7 @@ ul {
     transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
     border: 2px solid white;
     border-radius: 2px;
+    height: 10%;
 }
 
 .carousel-picture.initial,
@@ -259,6 +268,13 @@ ul {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 20px;
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* Interest Fetch Styling END */
