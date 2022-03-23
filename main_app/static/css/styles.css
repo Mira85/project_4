@@ -4,7 +4,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(158, 158, 158);
+    background-color: orange;
 }
 
 .nav-item {
@@ -20,8 +20,8 @@ ul {
 }
 
 .nav-link:hover {
-    background-color: rgb(61, 138, 214);
-    color: rgb(255, 140, 0);
+    background-color: dodgerblue;
+    color: white;
 }
 
 /* Navbar styling END */
@@ -47,6 +47,8 @@ ul {
     padding: 1rem 4rem;
     z-index: 100;
     transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+    border: 2px solid white;
+    border-radius: 2px;
 }
 
 .carousel-picture.initial,
@@ -130,7 +132,7 @@ ul {
 }
 
 .card:hover {
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.25);
 }
 
 .borough-image {
@@ -144,6 +146,7 @@ ul {
     width: 100%;
     display: block;
     color: black;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 /* Boroughs Index Cards styling END */
@@ -156,23 +159,23 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
-    grid-gap: 1rem;
+    gap: 1rem;
 }
 
 .card {
     border: 2px solid black;
     border-radius: 2px;
-    padding: 0.5rem;
-    transition: 0.3s;
+    padding: 1rem;
+    transition: 0.3s; 
 }
 
 .card:hover {
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.25);
 }
 
 .neighborhood-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 60%;
 }
 
 .neighborhood-name {
@@ -181,15 +184,69 @@ ul {
     width: 100%;
     display: block;
     color: black;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 #description {
-    overflow: hidden;
+    overflow: scroll;
 }
 
 /* Borough Detail Cards styling END */
 
 /***********************************/
+
+/* Neighborhood Fetch styling START */
+
+.neighborhood-fetch-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 1rem;
+    margin: 50px;
+}
+
+.neighborhood-fetch-card {
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 1rem;
+    transition: 0.3s; 
+    background-color: white;
+}
+
+.neighborhood-fetch-card:hover {
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.25);
+}
+
+.neighborhood-fetch-image {
+    width: 100%;
+    height: 50%;
+}
+
+.neighborhood-fetch-name {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+#interest-details {
+    align-items: end;
+}
+
+/* Neighborhood Fetch styling END */
+
+/***********************************/
+
+/* Interest Fetch styling START */
+
+.interest-fetch-card {
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 1rem;
+    transition: 0.3s; 
+    background-color: white;
+}
+
+/* Interest Fetch Styling END */
 
 /* Login styling START */
 
@@ -200,7 +257,8 @@ ul {
     padding: 1rem;
     background-color: whitesmoke;
     position: relative;
-    height: 40vh;
+    height: 50%;
+    width: 50%;
 }
 
 
@@ -210,7 +268,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: linear-gradient(90deg, dodgerblue, white, darkorange);
+    background: linear-gradient(90deg, rgb(36, 101, 223), rgb(147, 172, 216)) 
 }
 
 main {
@@ -218,7 +276,7 @@ main {
 }
 
 footer {
-    background-color: gray;
+    background-color: orange;
     color: white;
     padding-top: 0;
     text-align: right;
@@ -227,6 +285,7 @@ footer {
 .title {
     text-align: center;
     margin-top: 2%;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 /* modal form styling */
