@@ -97,11 +97,18 @@ def neighborhood_detail(request, neighborhood_id):
                 }
                 place_list.append(place)
 
-    
-
+        tourist_attractions = []
+        for place in place_list: 
+            if 'tourist_attraction' in place['interest_category']:
+                tourist_attractions.append(place)
+        tourist_range = tourist_attractions[0:3]
+        tourist_rest = tourist_attractions[3:]
+        
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
-        'points_of_interest': place_list
+        'points_of_interest': place_list,
+        'tourist_range': tourist_range,
+        'tourist_rest' : tourist_rest
     } )
 
 def point_of_interest_index(request):
@@ -230,12 +237,12 @@ def delete_from_itinerary(request, user_id, itinerary_id,point_of_interest, name
         for interest in itinerary.points_of_interest:
             if interest == point_of_interest:
                 interest.delete()
-        for interest_name in itinerary.points_of_interest_name:
-            if interest_name == name:
-                interest_name.delete()
-        for interest_id in itinerary.points_of_interest_id:
-            if interest_id == id:
-                interest_id.delete()
+        for name in itinerary.points_of_interest:
+            if interest == point_of_interest:
+                interest.delete()
+        for interest in itinerary.points_of_interest:
+            if interest == point_of_interest:
+                interest.delete()
 
         return redirect('user_list', user_id)
 
