@@ -5,27 +5,9 @@
         <img src="{{ point_of_interest.photo }}" alt="">
         <h6>{{ point_of_interest.address }}</h6>
         <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
-        <h6>ID: {{ point_of_interest.id }}</h6>
-        <h6>Rating: {{ point_of_interest.rating }}</h6>
-        <h3>Reviews:</h3>
-        <h5>
-            {% if reviews in point_of_interest %}
-            {% for review in point_of_interest.reviews  %}
-            <h6>***********************************</h6>
-        </h5>
+
         <br>
-        <div>
-            Name: {{ review.author_name }}
-            <br>
-            Rating: {{ review.rating }}
-            <br>
-            Review: {{ review.text}}
-            <br>
-            When: {{ review.relative_time_description }}
-        </div>
-        <br>
-        {% endfor %}
-        {% endif %}
+
         <h5>Description</h5>
         <h6>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis excepturi quae quos, totam reiciendis
