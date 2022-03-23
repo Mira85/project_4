@@ -1,5 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
+
+
     <h1>User's List of Iteneraries</h1>
     <form action="{% url 'add_itinerary' user.id %}" method="POST">
         {% csrf_token %} {{ itinerary_form.as_table }}
@@ -12,8 +14,5 @@
             {{itinerary.points_of_interest}}
         {% endfor %}
     </ul>
-    <script>
-
-    </script>
 {% endblock content %}
     
