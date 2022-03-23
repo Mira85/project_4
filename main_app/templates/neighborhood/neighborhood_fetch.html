@@ -34,9 +34,9 @@
             <!-- <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in points_of_interest %}
                 {% if 'tourist_attraction' in point_of_interest.interest_category %}
-                <div  class="interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
                         {{ point_of_interest.name }}
                     </a>
@@ -66,9 +66,9 @@
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in points_of_interest %}
                 {% if 'restaurant' in point_of_interest.interest_category %}
-                <div  class=" interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
                         {{ point_of_interest.name }}
                     </a>
@@ -98,9 +98,9 @@
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in points_of_interest %}
                 {% if 'lodging' in point_of_interest.interest_category %}
-                <div  class=" interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
                         {{ point_of_interest.name }}
                     </a>
@@ -130,9 +130,9 @@
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in points_of_interest %}
                 {% if 'park' in point_of_interest.interest_category %}
-                <div class=" interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
                         {{ point_of_interest.name }}
                     </a>
