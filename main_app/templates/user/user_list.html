@@ -2,36 +2,69 @@
 {% block content %}
 
     <h1>User's List of Iteneraries</h1>
-    
-    {% for itinerary in itineraries %}
-        {{ itinerary.points_of_interest }}
-        
-    {% endfor %}
-        
 
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal">
+        New Itinerary
+    </button>
     
-    <form action="{% url 'add_itinerary' user.id %}" method="POST">
-        {% csrf_token %} {{ itinerary_form.as_table }}
-        <br>
-        <input type="submit" value="Create Itinerary">
-    </form>
+    <div>
+        <div class="modal fade" id="itineraryModal" tabindex="-1" aria-labelledby="itineraryModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modal_form">
+                    <div class="col-10 modal_box">
+                    <div class="form-group">
+                        <ul id="add_itinerary_modal">
+                            <form action="{% url 'add_itinerary' user.id %}" method="POST">
+                                {% csrf_token %} {{ itinerary_form.as_table }}
+                                <br>
+                                <input type="submit" class="btn btn-success"value="Create Itinerary">
+                            </form>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="accordion">
-        
         {% for itinerary in itineraries  %}
             <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
-                <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse{{itinerary.name}}" aria-expanded="true" aria-controls="collapse{{ itinerary.name }}">
-                    {{ itinerary.name }}
-                </button>
+                    <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse{{itinerary.name}}" aria-expanded="true" aria-controls="collapse{{ itinerary.name }}">
+                        {{ itinerary.name }} 
+                    </button>
+                    <form action="{% url 'delete_itinerary' user.id itinerary.id  %}"
+                    method="POST">
+                    {% csrf_token %}
+                            <input type="submit" value="&#x2715" class="btn btn-danger">
+                    </form>
                 </h5>
             </div>
             <div id="collapse{{itinerary.name}}" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
                 <div class="card-body">
                 <ul>
-                    
-                    {% for name in itinerary.points_of_interest_name  %}
-                        <li><a href="url"></a>{{ name }}</li>
+                    {% for point_of_interest in itinerary.points_of_interest %}
+                        {% for name in itinerary.points_of_interest_name %}
+                            {% for id in itinerary.points_of_interest_id  %}    
+                                {% if id in point_of_interest %}
+                                    {% if name in point_of_interest %}
+                                        <li>
+                                            <a href="{% url 'point_of_interest_detail' id %}">{{ name }}</a>
+                                            <form action="{% url 'delete_from_itinerary' user.id itinerary.id  name id point_of_interest%}" method="POST">
+                                            {% csrf_token %}
+                                                <input type="submit" value="-" class="btn btn-danger">
+                                            </form>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                                
+                                
+                        {% endfor %}
+                            
                     {% endfor %}
                         
                 </ul>
@@ -43,6 +76,5 @@
             
         
       </div>
-
 {% endblock content %}
     

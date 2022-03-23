@@ -44,8 +44,8 @@
 </div>
 </b>
 
-<!-- Modal -->
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal" style="margin-left: 10px;">
+{% if user.id %}
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal">
     Add to Itinerary
 </button>
 
@@ -53,28 +53,27 @@
     <div class="modal fade" id="itineraryModal" tabindex="-1" aria-labelledby="itineraryModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content modal_form">
-                {% if user.id %}
                 <div class="col-10 modal_box">
-                <div class="form-group">
-                    <ul id="add_itinerary_modal">
-                        {% for itinerary in itineraries  %}
-                                <form action="{% url 'add_to_itinerary' user.id itinerary.id point_of_interest.id point_of_interest.name %}">
-                                    <li>
-                                        {{itinerary.name}}
-                                        <input class='itinerary-btn btn 'type="submit" value="&#43;">
-                                    </li>
-                                </form>
-                        {% endfor %}
-                    </ul>
+                    <div class="form-group">
+                        <ul id="add_itinerary_modal">
+                            {% for itinerary in itineraries  %}
+                            <form action="{% url 'add_to_itinerary' user.id itinerary.id point_of_interest.id point_of_interest.name %}">
+                                <li>
+                                    {{itinerary.name}}
+                                    <input class='itinerary-btn btn 'type="submit" value="&#43;">
+                                </li>
+                            </form>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
-                {% endif %}
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
-        </div>
         </div>
     </div>
 </div>
+{% endif %}
 
 <br>
 <br>
