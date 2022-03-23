@@ -26,10 +26,12 @@ ul {
 
 .search-container {
     margin-top: 0.8%;
-    margin-left: 1%;
     overflow: hidden;
     float: right;
     clear: both;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
 }
 
 /* Navbar styling END */
@@ -44,6 +46,7 @@ ul {
 
 .carousel {
     transform-style: preserve-3d;
+    height: 90vh;
 }
 
 .carousel-picture {
@@ -57,7 +60,7 @@ ul {
     transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
     border: 2px solid white;
     border-radius: 2px;
-    height: 10%;
+    height: 100%;
 }
 
 .carousel-picture.initial,
