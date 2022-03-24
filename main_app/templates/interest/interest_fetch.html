@@ -4,50 +4,30 @@
     <h1 class="title">{{ point_of_interest.name }}</h1>
 
     <div class="interest-fetch-card">
-        <img src="{{ point_of_interest.photo }}" alt="">
-        <h6>{{ point_of_interest.address }}</h6>
-        <h6>TYPES: {{ point_of_interest.interest_category}}</h6>
-        <h6>ID: {{ point_of_interest.id }}</h6>
-        <h6>Rating: {{ point_of_interest.rating }}</h6>
-        <h3>Reviews:</h3>
-        <h5>
-            {% if reviews in point_of_interest %}
-                {% for review in point_of_interest.reviews  %}
-                    <h6>***********************************</h6>
-        </h5>
+        <img src="{{ point_of_interest.photo }}" alt="" class="center-image">
+        <div style="text-align: center; margin-top: 5px;">
+            <h6>{{ point_of_interest.address }}</h6>
+        </div>
+        <h5><b>Description</b></h5>
+        <h6>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis excepturi quae quos, totam reiciendis
+            nulla mollitia repellat voluptas placeat? Quae eveniet amet et voluptatum dolor nam nostrum earum quasi.
+            Provident magni voluptatibus aperiam, in ipsam a veritatis cumque eius id sunt ex veniam rerum! Enim, suscipit
+            eveniet animi magnam nam veritatis voluptates in porro commodi temporibus, ipsam vitae tempore.
+            Voluptatum omnis vitae beatae voluptate in cum nobis, nulla soluta. Excepturi natus rerum corporis. Ullam fugiat
+            perspiciatis voluptates fuga consequuntur omnis nobis, culpa tempora alias magnam amet optio eum veritatis.
+            Quibusdam voluptatum eius illum officia quae. Dolorum quod maiores perspiciatis magnam ratione sint earum ullam
+            aut
+            laboriosam nesciunt, consectetur eum impedit cum unde id aliquid corrupti fugit repellat illum iure?
+        </h6>
     </div>
-                    <br>
-                    <div>
-                        Name: {{ review.author_name }}
-                        <br>
-                        Rating: {{ review.rating }}
-                        <br>
-                        Review: {{ review.text}}
-                        <br>
-                        When: {{ review.relative_time_description }}
-                    </div>
-                    <br>
-                {% endfor %}
-            {% endif %}
-    <h5>Description</h5>
-    <h6>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis excepturi quae quos, totam reiciendis
-        nulla mollitia repellat voluptas placeat? Quae eveniet amet et voluptatum dolor nam nostrum earum quasi.
-        Provident magni voluptatibus aperiam, in ipsam a veritatis cumque eius id sunt ex veniam rerum! Enim, suscipit
-        eveniet animi magnam nam veritatis voluptates in porro commodi temporibus, ipsam vitae tempore.
-        Voluptatum omnis vitae beatae voluptate in cum nobis, nulla soluta. Excepturi natus rerum corporis. Ullam fugiat
-        perspiciatis voluptates fuga consequuntur omnis nobis, culpa tempora alias magnam amet optio eum veritatis.
-        Quibusdam voluptatum eius illum officia quae. Dolorum quod maiores perspiciatis magnam ratione sint earum ullam
-        aut
-        laboriosam nesciunt, consectetur eum impedit cum unde id aliquid corrupti fugit repellat illum iure?
-    </h6>
-</div>
-</b>
 
 {% if user.id %}
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal">
-    Add to Itinerary
-</button>
+<div style="text-align: right;">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itineraryModal" style="margin-right: 10px;">
+        Add to Itinerary
+    </button>
+</div>
 
 <div>
     <div class="modal fade" id="itineraryModal" tabindex="-1" aria-labelledby="itineraryModalLabel" aria-hidden="true">
@@ -137,9 +117,9 @@
     <div class="user-reviews">
         {% for review in all_reviews  %}
 
-            <p>{{review.user}}</p>
-            <p>Rating: {{review.ratings}}</p>
-            <p>{{review.description}}</p>
+            <h4><b>{{review.user}}</b></h4>
+            <p><b>Rating:</b> {{review.ratings}}</p>
+            <p>"{{review.description}}"</p>
 
         {% endfor %}
     </div>
