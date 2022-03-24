@@ -117,9 +117,9 @@
     <div class="user-reviews">
         {% for review in all_reviews  %}
 
-            <p>{{review.user}}</p>
-            <p>Rating: {{review.ratings}}</p>
-            <p>{{review.description}}</p>
+            <h4><b>{{review.user}}</b></h4>
+            <p><b>Rating:</b> {{review.ratings}}</p>
+            <p>"{{review.description}}"</p>
 
         {% endfor %}
     </div>
