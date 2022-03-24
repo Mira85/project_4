@@ -307,9 +307,6 @@ def search(request):
         url_search_term = urllib.parse.quote(" " + searched)
         searched_url = f"{NEIGHBORHOOD_BASE_URL}newyorkcity{url_search_term}&key={API_KEY}"
         response = requests.get(searched_url, headers=headers, data=payload)
-        place = response.json()['results']
-        context = {'place' : place}
-        #return render (request, 'interest/interest_index.html', context)
         place_id = response.json()['results'][0]['place_id']
         return redirect('point_of_interest_detail', point_of_interest_id = place_id) 
         
