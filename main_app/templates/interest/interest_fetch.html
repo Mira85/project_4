@@ -114,15 +114,53 @@
         </div>
     </div>
 
-    <div class="user-reviews">
-        {% for review in all_reviews  %}
 
-            <h4><b>{{review.user}}</b></h4>
-            <p><b>Rating:</b> {{review.ratings}}</p>
-            <p>"{{review.description}}"</p>
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
 
-        {% endfor %}
+    {% for review in all_reviews  %}
+    <hr />
+    <p>{{review.user}}</p>
+    {% if review.ratings == 5 %}
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    {% elif review.ratings == 4 %}
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    {% elif review.ratings == 3 %}
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    {% elif review.ratings == 2 %}
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    {% elif review.ratings == 1 %}
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    {% endif %}
+
+    <p>{{review.description}}</p>
+    <hr />
+    {% endfor %}
+
     </div>
 </div>
 
-{% endblock content %}
+    {% endblock content %}
