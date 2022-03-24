@@ -127,10 +127,8 @@
     initCarousel();
 
 } (document));
-<<<<<<< HEAD
 
 $('.collapse').collapse({
     toggle: true
 })
-=======
->>>>>>> master
+

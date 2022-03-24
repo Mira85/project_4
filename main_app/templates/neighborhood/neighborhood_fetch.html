@@ -4,14 +4,35 @@
         <h1 class="title">{{ neighborhood.name}}, {{ neighborhood.borough }}</h1>
 
         <section id="top_attraction_section">
-            <h3>Top Attractions</h3>
+            <h3 class="title">Top Attractions</h3>
             <hr>
             <div class="neighborhood-fetch-cards-container">
-                {% for point_of_interest in points_of_interest %}
-                {% if 'tourist_attraction' in point_of_interest.interest_category %}
-                <div  class="interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                {% for point_of_interest in tourist_range %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
+                        <br>
+                        <p>{{ point_of_interest.name }}</p>
+                    </a>
+                    <br>
+                    <div id="interest_details">
+                        <span id="address">
+                            {{ point_of_interest.address }}
+                        </span>
+                        <br>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
+                        </p>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+                <button class="btn view_more_btn">View More</button>
+                <br>
+                {% for point_of_interest in tourist_rest %}
+                <div class="neighborhood-fetch-card rest_block hidden">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
                         {{ point_of_interest.name }}
                     </a>
@@ -30,20 +51,100 @@
                     </div>
                     
                 </div>
-                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <section id="place_to_stay_section">
+            <h3>Where To Go Out</h3>
+            <hr>
+            <div class="neighborhood-fetch-cards-container">
+                {% for point_of_interest in clubs_range %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
+                        <br>
+                        {{ point_of_interest.name }}
+                    </a>
+                    <br>
+                    <div id="interest_details">
+                        <span id="address">
+                            {{ point_of_interest.address }}
+                        </span>
+                        <br>
+                        <span id="rating">
+                            Rating: {{ point_of_interest.rating }}
+                        </span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
+                        </p>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </section>
 
         <section id="restaurant_section">
-            <h3>Where to Eat</h3>
+            <h3 class=title>Where To Eat</h3>
             <hr>
             <div class="neighborhood-fetch-cards-container">
-                {% for point_of_interest in points_of_interest %}
-                {% if 'restaurant' in point_of_interest.interest_category %}
-                <div  class=" interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                {% for point_of_interest in restaurant_range %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
+                        <br>
+                        <p>{{ point_of_interest.name }}</p>
+                    </a>
+                    <br>
+                    <div id="interest_details">
+                        <span id="address">
+                            {{ point_of_interest.address }}
+                        </span>
+                        <br>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
+                        </p>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="place_to_stay_section">
+            <h3 class="title">Where To Stay</h3>
+            <hr>
+            <div class="neighborhood-fetch-cards-container">
+                {% for point_of_interest in places_to_stay_range %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
+                        <br>
+                        <p>{{ point_of_interest.name }}</p>
+                    </a>
+                    <br>
+                    <div id="interest_details">
+                        <span id="address">
+                            {{ point_of_interest.address }}
+                        </span>
+                        <br>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
+                        </p>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="place_to_stay_section">
+            <h3 class="title">Where To Shop</h3>
+            <hr>
+            <div class="neighborhood-fetch-cards-container">
+                {% for point_of_interest in shops_range %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
                         {{ point_of_interest.name }}
                     </a>
@@ -62,7 +163,6 @@
                     </div>
                     
                 </div>
-                {% endif %}
                 {% endfor %}
             </div>
         </section>
@@ -71,13 +171,12 @@
             <h3>Parks</h3>
             <hr>
             <div class="neighborhood-fetch-cards-container">
-                {% for point_of_interest in points_of_interest %}
-                {% if 'lodging' in point_of_interest.interest_category %}
-                <div  class=" interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
+                {% for point_of_interest in parks_range %}
+                <div class="neighborhood-fetch-card">
+                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
+                        <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
-                        {{ point_of_interest.name }}
+                        <p>{{ point_of_interest.name }}</p>
                     </a>
                     <br>
                     <div id="interest_details">
@@ -85,51 +184,17 @@
                             {{ point_of_interest.address }}
                         </span>
                         <br>
-                        <span id="rating">
-                            Rating: {{ point_of_interest.rating }}
-                        </span>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
                         </p>
                     </div>
                     
                 </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-        </section>
-
-        <section id="places_to_stay_section">
-            <h3>Places to Stay</h3>
-            <hr>
-            <div class="neighborhood-fetch-cards-container">
-                {% for point_of_interest in points_of_interest %}
-                {% if 'park' in point_of_interest.interest_category %}
-                <div class=" interests col-sm-10 col-md-4 col-lg-4">
-                    <a href="{% url 'point_of_interest_detail' point_of_interest.id %}">
-                        <img src="{{ point_of_interest.photo }}" alt="">
-                        <br>
-                        {{ point_of_interest.name }}
-                    </a>
-                    <br>
-                    <div id="interest_details">
-                        <span id="address">
-                            {{ point_of_interest.address }}
-                        </span>
-                        <br>
-                        <span id="rating">
-                            Rating: {{ point_of_interest.rating }}
-                        </span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
-                        </p>
-                    </div>
-                    
-                </div>
-                {% endif %}
                 {% endfor %}
             </div>
         </section>
     </div>
+
+   
 {% endblock content %}
         

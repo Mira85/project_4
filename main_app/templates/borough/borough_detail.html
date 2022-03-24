@@ -7,10 +7,10 @@
     <div class="detail-cards-container">
         {% for neighborhood in neighborhoods %}
         <div class="card neighborhood-name">
-            <a href="{% url 'neighborhood_detail' neighborhood.id %}">
+            <a href="{% url 'neighborhood_detail' neighborhood.id %}" class="neighborhood-name">
                 <img class="neighborhood-image" src="{{ neighborhood.image }}" alt="">
                 <br>
-                {{ neighborhood.name }}
+                <p>{{ neighborhood.name }}</p>
             </a>
             <br>
             <span id="description">{{ neighborhood.description|truncatewords:30 }}

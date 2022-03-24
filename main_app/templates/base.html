@@ -1,4 +1,4 @@
-{% load sass_tags %}
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
           <div class="nav-wrapper">
             <ul class="nav">
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'home' %}">Destination<b>NYC</b></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/boroughs">Boroughs</a>
@@ -44,11 +44,13 @@
                 <a class="nav-link" href="{% url 'login' %}">Log In</a>
               </li>
               {% endif %}
-              <form method="POST" action="{% url 'search' %}" class="nav-item" >
-                {% csrf_token%}
-                <input class="input" id="searchTxt" type="text" name="searched" placeholder="Search tourist attraction">
-                <button class="button" id="searchBtn">Search</button>
-              </form>
+              <div class="search-container">
+                <form method="POST" action="{% url 'search' %}" class="nav-item" >
+                  {% csrf_token%}
+                  <input class="input" id="searchTxt" type="text" name="searched" placeholder="Search tourist attraction">
+                  <button class="button" id="searchBtn">Search</button>
+                </form>
+              </div>
             </ul>
           </div>
         </nav>

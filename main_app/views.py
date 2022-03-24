@@ -97,11 +97,63 @@ def neighborhood_detail(request, neighborhood_id):
                 }
                 place_list.append(place)
 
-    
-
+        tourist_attractions = []
+        for place in place_list: 
+            if 'tourist_attraction' in place['interest_category']:
+                tourist_attractions.append(place)
+        tourist_range = tourist_attractions[0:3]
+        tourist_rest = tourist_attractions[3:]
+        
+        restaurants = []
+        for place in place_list: 
+            if 'restaurant' in place['interest_category']:
+                restaurants.append(place)
+        restaurant_range = restaurants[0:3]
+        restaurant_rest = restaurants[3:]
+        
+        places_to_stay = []
+        for place in place_list: 
+            if 'lodging' in place['interest_category']:
+                places_to_stay.append(place)
+        places_to_stay_range = places_to_stay[0:3]
+        places_to_stay_rest = places_to_stay[3:]
+        
+        clubs = []
+        for place in place_list: 
+            if 'night_club' in place['interest_category']:
+                clubs.append(place)
+        clubs_range = clubs[0:3]
+        clubs_rest = clubs[3:]
+        
+        parks = []
+        for place in place_list: 
+            if 'park' in place['interest_category']:
+                parks.append(place)
+        parks_range = parks[0:3]
+        parks_rest = parks[3:]
+        
+        shops = []
+        for place in place_list: 
+            if 'clothing_store' in place['interest_category']:
+                shops.append(place)
+        shops_range = shops[0:3]
+        shops_rest = shops[3:]
+        
     return render(request, 'neighborhood/neighborhood_fetch.html', {
         'neighborhood': neighborhood,
-        'points_of_interest': place_list
+        'points_of_interest': place_list,
+        'tourist_range': tourist_range,
+        'tourist_rest' : tourist_rest,
+        'restaurant_range': restaurant_range,
+        'restaurant_rest' : restaurant_range,
+        'places_to_stay_range': places_to_stay_range,
+        'places_to_stay_rest': places_to_stay_rest,
+        'clubs_range' : clubs_range,
+        'clubs_rest' : clubs_rest,
+        'parks_range' : parks_range,
+        'parks_rest' : parks_rest,
+        'shops_range' : shops_range,
+        'shops_rest' : shops_rest
     } )
 
 def point_of_interest_index(request):
@@ -192,6 +244,7 @@ def delete_review(request, point_of_interest_id, review_id):
         data.delete()
         return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
 
+@login_required
 def user_list(request, user_id):
     itinerary_form = ItineraryForm()
     user = User.objects.get(id=user_id)
@@ -202,6 +255,7 @@ def user_list(request, user_id):
         'itineraries': itineraries
     })
 
+@login_required
 def add_itinerary(request, user_id):
     form = ItineraryForm(request.POST)
     if request.method == "POST":
@@ -211,13 +265,39 @@ def add_itinerary(request, user_id):
             new_itinerary.save()
         return redirect('user_list', user_id = user_id)
 
-def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name):
+@login_required
+def add_to_itinerary(request, user_id, itinerary_id, point_of_interest_id, point_of_interest_name, ):
     itinerary = Itinerary.objects.get(id=itinerary_id)
-    itinerary.points_of_interest.append({point_of_interest_name : point_of_interest_id})
+    point_of_interest = f"{point_of_interest_name} {point_of_interest_id}"
     itinerary.points_of_interest_id.append(point_of_interest_id)
     itinerary.points_of_interest_name.append(point_of_interest_name)
+    itinerary.points_of_interest.append(point_of_interest)
     itinerary.save()
     return redirect('point_of_interest_detail', point_of_interest_id = point_of_interest_id)
+
+@login_required
+def delete_from_itinerary(request, user_id, itinerary_id,point_of_interest, name, id):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    if request.method == "POST":
+        for interest in itinerary.points_of_interest:
+            if interest == point_of_interest:
+                interest.delete()
+        for name in itinerary.points_of_interest:
+            if interest == point_of_interest:
+                interest.delete()
+        for interest in itinerary.points_of_interest:
+            if interest == point_of_interest:
+                interest.delete()
+
+        return redirect('user_list', user_id)
+
+
+@login_required
+def delete_itinerary(request, user_id, itinerary_id ):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    if request.method == "POST":
+        itinerary.delete()
+        return redirect('user_list', user_id)
 
 def search(request):
     payload={}
