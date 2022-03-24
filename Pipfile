@@ -7,9 +7,6 @@ name = "pypi"
 django-heroku = "*"
 gunicorn = "*"
 python-decouple = "*"
-libsass = "*"
-django-sass-processor = "*"
-django-compressor = "*"
 
 [dev-packages]
 
