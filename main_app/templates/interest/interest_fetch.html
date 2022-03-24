@@ -39,7 +39,7 @@
                             {% for itinerary in itineraries  %}
                             <form action="{% url 'add_to_itinerary' user.id itinerary.id point_of_interest.id point_of_interest.name %}">
                                 <li>
-                                    {{itinerary.name}} {{ itinerary.id }}
+                                    {{itinerary.name}}
                                     <input class='itinerary-btn btn 'type="submit" value="&#43;">
                                 </li>
                             </form>
