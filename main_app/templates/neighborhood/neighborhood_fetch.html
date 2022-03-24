@@ -4,7 +4,7 @@
         <h1 class="title">{{ neighborhood.name}}, {{ neighborhood.borough }}</h1>
 
         <section id="top_attraction_section">
-            <h3>Top Attractions</h3>
+            <h3 class="title">Top Attractions</h3>
             <hr>
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in tourist_range %}
@@ -12,7 +12,7 @@
                     <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
                         <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
-                        {{ point_of_interest.name }}
+                        <p>{{ point_of_interest.name }}</p>
                     </a>
                     <br>
                     <div id="interest_details">
@@ -20,9 +20,6 @@
                             {{ point_of_interest.address }}
                         </span>
                         <br>
-                        <span id="rating">
-                            Rating: {{ point_of_interest.rating }}
-                        </span>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
                         </p>
@@ -87,7 +84,11 @@
         </section>
 
         <section id="restaurant_section">
+<<<<<<< HEAD
             <h3>Where To Eat</h3>
+=======
+            <h3 class="title">Where to Eat</h3>
+>>>>>>> master
             <hr>
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in restaurant_range %}
@@ -95,7 +96,7 @@
                     <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
                         <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
-                        {{ point_of_interest.name }}
+                        <p>{{ point_of_interest.name }}</p>
                     </a>
                     <br>
                     <div id="interest_details">
@@ -103,9 +104,6 @@
                             {{ point_of_interest.address }}
                         </span>
                         <br>
-                        <span id="rating">
-                            Rating: {{ point_of_interest.rating }}
-                        </span>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
                         </p>
@@ -116,8 +114,13 @@
             </div>
         </section>
 
+<<<<<<< HEAD
         <section id="place_to_stay_section">
             <h3>Where To Stay</h3>
+=======
+        <section id="park_section">
+            <h3 class="title">Parks</h3>
+>>>>>>> master
             <hr>
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in places_to_stay_range %}
@@ -125,7 +128,7 @@
                     <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
                         <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
-                        {{ point_of_interest.name }}
+                        <p>{{ point_of_interest.name }}</p>
                     </a>
                     <br>
                     <div id="interest_details">
@@ -133,9 +136,6 @@
                             {{ point_of_interest.address }}
                         </span>
                         <br>
-                        <span id="rating">
-                            Rating: {{ point_of_interest.rating }}
-                        </span>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
                         </p>
@@ -146,8 +146,13 @@
             </div>
         </section>
 
+<<<<<<< HEAD
         <section id="place_to_stay_section">
             <h3>Where To Shop</h3>
+=======
+        <section id="places_to_stay_section">
+            <h3 class="title">Places to Stay</h3>
+>>>>>>> master
             <hr>
             <div class="neighborhood-fetch-cards-container">
                 {% for point_of_interest in shops_range %}
@@ -185,7 +190,7 @@
                     <a href="{% url 'point_of_interest_detail' point_of_interest.id %}" class="neighborhood-fetch-name">
                         <img src="{{ point_of_interest.photo }}" alt="" class="neighborhood-fetch-image">
                         <br>
-                        {{ point_of_interest.name }}
+                        <p>{{ point_of_interest.name }}</p>
                     </a>
                     <br>
                     <div id="interest_details">
@@ -193,9 +198,6 @@
                             {{ point_of_interest.address }}
                         </span>
                         <br>
-                        <span id="rating">
-                            Rating: {{ point_of_interest.rating }}
-                        </span>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint accusamus debitis similique voluptatem numquam ipsam impedit voluptatibus fugiat fugit, modi 
                         </p>
