@@ -13,19 +13,19 @@ A web application that allows users to view attractions based in New York City a
 ## Screenshots
 
 ### Home page
-![Imgur](https://imgur.com/W84nVbX)
+![Imgur](https://i.imgur.com/W84nVbX.jpg)
 
 ### Login page
-![Imgur](https://imgur.com/4V7XUAV)
+![Imgur](https://i.imgur.com/4V7XUAV.png)
 
 ### Boroughs index page
-![Imgur](https://imgur.com/m94s7uS)
+![Imgur](https://i.imgur.com/m94s7uS.png)
 
 ### Neighborhoods page
-![Imgur](https://imgur.com/0YvqfJ2)
+![Imgur](https://i.imgur.com/0YvqfJ2.png)
 
 ### Attractions page
-![Imgur](https://imgur.com/aQBseT2)
+![Imgur](https://i.imgur.com/aQBseT2.jpg)
 
 ## Getting started
 [Click Here](https://destination-nyc.herokuapp.com/) to see the deployed app!
