@@ -28,7 +28,7 @@ A web application that allows users to view attractions based in New York City a
 ![Imgur](https://i.imgur.com/aQBseT2.jpg)
 
 ## Getting started
-[Click Here](https://destination-nyc.herokuapp.com/) to see the deployed app!
+[Click Here](https://destination-nyc-mira.herokuapp.com/) to see the deployed app!
 
 ## Future Enhancements
 - Improvements to the search feature
